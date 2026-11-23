@@ -1,0 +1,78 @@
+<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FIX Brief weekly | FREIGHTRIX</title><meta name="description" content="The weekly Australian freight briefing."><meta name="robots" content="noindex,nofollow"><style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+:root{--navy:#011223;--navy2:#071E33;--panel:#0B2740;--line:#1A3A57;--ink:#0D1B26;--paper:#F3F6F8;--mute:#5E7180;
+--lime:#9EF203;--cyan:#00E5F0;--cyan-d:#0A8FA3;--red:#E5484D;--amber:#FFB224}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:16.5px/1.55 Inter,system-ui,sans-serif}
+a{color:inherit} :focus-visible{outline:3px solid var(--lime);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+header.top{background:var(--navy);color:#fff;position:sticky;top:0;z-index:10;border-bottom:1px solid #0E2B44}
+header.top .wrap{display:flex;align-items:center;height:68px;gap:28px}
+header.top img{height:40px;display:block}
+nav{display:flex;gap:20px;margin-left:auto;align-items:center}
+nav a{text-decoration:none;font-weight:600;font-size:14.5px;color:#C9D6E0}
+nav a:hover,nav a.on{color:#fff}
+nav a.cta{background:var(--lime);color:var(--navy);padding:8px 14px;border-radius:8px;font-weight:800}
+.dark{background:var(--navy);color:#E8F0F5}.dark .mute{color:#93A8B8}
+h1{font-weight:900;font-size:clamp(36px,5vw,60px);line-height:1.03;letter-spacing:-.03em;margin:0 0 18px}
+h2{font-weight:800;font-size:clamp(26px,3vw,36px);line-height:1.1;letter-spacing:-.02em;margin:0 0 10px}
+h3{font-weight:800;font-size:18px;margin:0 0 6px;letter-spacing:-.01em}
+p{margin:0 0 12px} .lede{font-size:19px;color:var(--mute);max-width:62ch} .dark .lede{color:#A9BCCB}
+.mute{color:var(--mute)} .sm{font-size:13.5px}
+section{padding:64px 0;border-top:1px solid #DCE3E8} section.dark{border-top:0}
+.ey{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan-d);margin-bottom:10px}
+.dark .ey{color:var(--cyan)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.grid2>*,.grid3>*,.grid4>*{min-width:0}
+.card{background:#fff;border:1px solid #DCE3E8;border-radius:14px;padding:20px}
+.dark .card{background:var(--panel);border-color:var(--line)}
+.btn{display:inline-block;background:var(--lime);color:var(--navy);font-weight:800;text-decoration:none;border:0;border-radius:9px;padding:13px 20px;font:inherit;font-weight:800;cursor:pointer}
+.btn.ghost{background:transparent;border:1.5px solid currentColor;color:inherit}
+.pill{display:inline-block;font-size:11.5px;font-weight:800;padding:3px 9px;border-radius:99px;letter-spacing:.02em;white-space:nowrap}
+.s-closed{background:var(--red);color:#fff}.s-incidents{background:var(--amber);color:#1B1300}.s-planned{background:#DDE5EB;color:#2B3B47}.s-clear{background:#D9F7B0;color:#244300}
+.dark .s-planned{background:#24445F;color:#CFE0EC}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;padding:2px 8px;border-radius:5px;background:var(--cyan);color:var(--navy);vertical-align:2px}
+form.sub{display:grid;gap:10px;max-width:520px}
+.row{display:flex;gap:10px}
+input,select{font:inherit;font-size:16px;padding:13px 14px;border:1.5px solid #B8C6D1;border-radius:9px;background:#fff;color:var(--ink);width:100%;min-width:0}
+.dark input{border-color:#2B4C69}
+.checks{display:flex;gap:18px;flex-wrap:wrap;font-size:14.5px}.checks input{width:auto}
+.ok{display:none;background:#0B2740;color:#E8F0F5;border-left:4px solid var(--lime);padding:10px 12px;font-size:14px}
+.hero{padding:56px 0 64px}
+.hero .grid2{align-items:center;grid-template-columns:1.1fr .9fr}
+.hero img.logo{width:100%;max-width:560px;border-radius:14px;display:block}
+.sixty li{margin-bottom:8px}
+table{border-collapse:collapse;width:100%} td,th{text-align:left;padding:9px 8px;border-top:1px solid #E1E7EC;vertical-align:top;font-size:15px}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);font-weight:700}
+.dark td,.dark th{border-color:var(--line)}
+.legs a{text-decoration:none}.legs a:hover b{text-decoration:underline}
+.player{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+.player audio{width:100%;margin-top:10px}
+.chap{display:flex;gap:10px;font-size:14px;padding:5px 0;border-top:1px solid var(--line);cursor:pointer;color:#C9D6E0}
+.chap b{color:var(--lime);min-width:42px}
+.kpi b{display:block;font-size:34px;font-weight:900;letter-spacing:-.02em;line-height:1.1}
+.kpi span{font-size:13px;color:var(--mute)}
+.up{color:var(--red)}.down{color:#2E8B00}
+footer{background:var(--navy);color:#93A8B8;font-size:13px;padding:34px 0 46px}
+footer img{height:34px;margin-bottom:10px}
+.prose{max-width:760px}.prose h2{font-size:26px;margin-top:34px}.prose li{margin-bottom:6px}
+.src{font-size:12.5px;color:var(--mute)} .src a{color:var(--mute)}
+@media (max-width:960px){.grid2,.hero .grid2,.grid3{grid-template-columns:1fr}.grid4{grid-template-columns:1fr 1fr}nav a:not(.cta){display:none}}
+@media (max-width:520px){td,th{font-size:13.5px;padding:7px 4px}.hero{padding:36px 0 40px}.row{flex-direction:column}.grid4{grid-template-columns:1fr}header.top img{height:32px}}
+</style></head><body>
+<header class="top"><div class="wrap"><a href="index.html"><img src="assets/freightrix-road.png" alt="FREIGHTRIX, Australian freight intelligence platform"></a>
+<nav><a href="index.html" class="">Home</a><a href="brief.html" class="">Morning Briefing</a><a href="listen.html" class="">Listen</a><a href="road.html" class="">Road</a><a href="fuel.html" class="">Re-Fuel</a><a href="weekly.html" class="on">Weekly</a><a href="esg.html" class="">ESG</a><a class="cta" href="index.html#join">Subscribe</a></nav></div></header>
+<main><section class="dark" style="padding:44px 0"><div class="wrap"><div class="ey">FIX Brief · Fridays</div><h1 style="font-size:clamp(30px,4vw,46px)">The week in Australian freight</h1>
+<p class="lede">Linehaul reliability from our own log, diesel and fuel levies, the big five stories and what is coming next week.</p></div></section>
+<section><div class="wrap"><iframe src="media/weekly.html" title="Latest FIX Brief" style="width:100%;max-width:720px;height:1500px;border:1px solid #DCE3E8;border-radius:12px;background:#fff"></iframe></div></section></main>
+<footer><div class="wrap"><img src="assets/fix-road.png" alt="FIX"><br>
+FREIGHTRIX is a working prototype. Road, rail, port and weather data come from official public sources listed on each page; diesel prices from the Australian Institute of Petroleum.
+Briefings are written with AI from that data and checked by the Freightrix team. Always confirm with the official source before acting. Data last checked Mon 23 Nov 2026, 10:17 PM AEST.
+· <a href="advertise.html">Advertise</a></div></footer>
+<script>
+document.querySelectorAll('form.sub').forEach(f=>f.addEventListener('submit',e=>{
+ if(!f.getAttribute('action')){e.preventDefault();const ok=f.querySelector('.ok');ok.style.display='block';
+ ok.textContent='Prototype only. Sign up connects once the email account is set up, so nothing was saved.';}}));
+</script></body></html>
