@@ -1,6 +1,6 @@
-<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FIX Brief weekly | FREIGHTRIX</title><meta name="description" content="The weekly Australian freight briefing."><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#011223">
-<meta property="og:title" content="FIX Brief weekly | FREIGHTRIX"><meta property="og:description" content="The weekly Australian freight briefing."><meta property="og:image" content="assets/freightrix-globe.png">
+<!doctype html><html lang="en-AU" data-api="https://nhgewidrqosscmjqyesz.supabase.co/functions/v1/api"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Monday FIX newsletter | FREIGHTRIX</title><meta name="description" content="The weekly Australian freight newsletter, Monday nights."><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#011223">
+<meta property="og:title" content="The Monday FIX newsletter | FREIGHTRIX"><meta property="og:description" content="The weekly Australian freight newsletter, Monday nights."><meta property="og:image" content="assets/freightrix-globe.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#011223;--ink2:#06203A;--steel:#0C2B47;--line:#1C4062;--lime:#9EF203;--cyan:#00E5F0;--cyan-d:#00788A;
@@ -52,6 +52,16 @@ form.sub .btn{height:56px}
 .light form.sub input[type=email]{box-shadow:inset 0 0 0 1.5px #B9C6D0}.light .picks label{border-color:#C6D1D9;color:var(--text)}
 .fine{font-size:13px;color:#9FB2C0;margin:0}.light .fine{color:var(--mute)}
 .ok{display:none;background:var(--steel);color:#E6EEF3;border-radius:var(--r);padding:12px 14px;font-size:14px}
+/* category bar: jump straight to a category on the home page */
+.catbar{position:sticky;top:72px;z-index:39;background:var(--lime);border-bottom:2px solid var(--ink)}
+.catbar .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-top:8px;padding-bottom:8px}
+.catbar .wrap::-webkit-scrollbar{display:none}
+.catbar a{flex:none;font:800 14px/1 var(--cond);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-decoration:none;padding:9px 14px;border-radius:99px;border:1.5px solid transparent}
+.catbar a:hover{border-color:var(--ink)}.catbar a.on{background:var(--ink);color:var(--lime)}
+.catbar a i{font-style:normal;display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px;background:var(--ink)}
+.catbar a.alert i{background:var(--red)}
+[id]{scroll-margin-top:136px}
+.lanes{margin-top:10px}.lanes summary{cursor:pointer;font:600 14px var(--body)}.lanes .picks{margin-top:10px}
 /* ticker */
 .ticker{position:relative;z-index:3;background:var(--lime);color:var(--ink);overflow:hidden;white-space:nowrap;font:700 15px/44px var(--body)}
 .ticker .tr{display:inline-flex;gap:46px;padding-left:100%;animation:tick 70s linear infinite}
@@ -242,27 +252,44 @@ a.card:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
 @media (max-width:600px){.grid3,.grid4{grid-template-columns:1fr}.stack{display:none}.bhero{padding:36px 0 28px}.stack .card{width:92%;left:4%}.stack .s3,.stack .s2{display:none}
  .zonedk{padding:24px 18px;border-radius:18px}.rows .card .cimg{width:96px;flex-basis:96px}.feat .cb{padding:22px}.hscroll{grid-auto-columns:85%}}
 </style></head><body class="brew">
-<header class="top"><div class="wrap"><a href="index.html" aria-label="FREIGHTRIX home"><img class="logo" src="assets/freightrix-road.png" alt="FREIGHTRIX"></a><a class="livepill" href="road.html"><i></i>2 legs with closures<span>&nbsp;and 6 with incidents</span></a>
-<nav><a href="brief.html" class="">Morning Briefing</a><a href="listen.html" class="">Listen</a><a href="road.html" class="">Road</a><a href="fuel.html" class="">Re-Fuel</a><a href="weekly.html" class="on">Weekly</a><a href="esg.html" class="">ESG</a><a class="btn" style="min-height:42px;padding:11px 16px;font-size:15px;color:var(--ink)" href="index.html#join">Subscribe</a></nav></div></header>
+<header class="top"><div class="wrap"><a href="index.html" aria-label="FREIGHTRIX home"><img class="logo" src="assets/freightrix-road.png" alt="FREIGHTRIX"></a><a class="livepill" href="road.html"><i></i>0 legs with a closure<span>&nbsp;and 7 with incidents</span></a>
+<nav><a href="brief.html" class="">Daily FIX</a><a href="listen.html" class="">Listen</a><a href="road.html" class="">Road</a><a href="fuel.html" class="">Re-Fuel</a><a href="weekly.html" class="on">Monday FIX</a><a href="esg.html" class="">ESG</a><a class="btn" style="min-height:42px;padding:11px 16px;font-size:15px;color:var(--ink)" href="index.html#join">Subscribe</a></nav></div></header>
+<nav class="catbar" aria-label="Jump to a category"><div class="wrap"><a href="index.html#linehaul" data-cat="linehaul" class=""><i></i>Linehaul update</a><a href="index.html#industry" data-cat="industry" class=""><i></i>Industry update</a><a href="index.html#fuel" data-cat="fuel" class=""><i></i>Fuel update</a><a href="index.html#esg" data-cat="esg" class=""><i></i>ESG update</a></div></nav>
 <main><section class="mast"><img class="bgimg" src="m/photos/pn-intermodal-curve.jpg" srcset="m/photos/pn-intermodal-curve-sm.jpg 900w, m/photos/pn-intermodal-curve.jpg 2400w" sizes="100vw" alt="pn intermodal curve"  decoding="async"><div class="wrap">
-<p class="kick">FIX Brief, Fridays</p><h1>The week in Australian freight, measured.</h1>
-<p class="lede" style="color:#D3DEE6">Hours each linehaul leg was closed, from our own log. Diesel and levies, the big five stories and the possessions and closures coming next week.</p></div></section>
-<section class="light"><div class="wrap split" style="align-items:start"><div><iframe src="media/weekly.html" title="Latest FIX Brief" style="width:100%;height:1500px;border:0;border-radius:var(--r);background:#fff"></iframe></div>
-<div style="position:sticky;top:96px"><h3 style="margin-bottom:12px">Get FIX Brief every Friday</h3><form class="sub" id="join-w" action="" method="post">
+<p class="kick">The Monday FIX newsletter, Mondays 9pm</p><h1>The week in Australian freight, measured.</h1>
+<p class="lede" style="color:#D3DEE6">Hours each linehaul leg was closed, from our own log. Diesel and levies, the big five stories of the week and the possessions and closures coming up. Stories close 5pm Monday, it lands at 9pm.</p></div></section>
+<section class="light"><div class="wrap split" style="align-items:start"><div><p>The first edition lands on Monday night.</p></div>
+<div style="position:sticky;top:96px"><h3 style="margin-bottom:12px">Get the Monday FIX every Monday night</h3><form class="sub" id="join-w" action="" method="post">
 <div class="row"><input type="email" name="email" required placeholder="Your work email" aria-label="Work email" autocomplete="email"><button class="btn" type="submit">Subscribe</button></div>
-<div class="picks" role="group" aria-label="Editions"><label><input type="checkbox" name="daily" checked> Daily, 6am</label><label><input type="checkbox" name="audio" checked> Audio edition</label><label><input type="checkbox" name="weekly" checked> Friday weekly</label></div>
-<p class="fine">Free. One click to unsubscribe. We never share your email.</p><div class="ok" role="status"></div></form>
+<div class="picks" role="group" aria-label="Editions"><label><input type="checkbox" name="edition" value="daily" checked> Daily FIX, 5am</label><label><input type="checkbox" name="edition" value="linehaul-am"> AM Linehaul, 5am</label><label><input type="checkbox" name="edition" value="linehaul-pm"> PM Linehaul, 4pm</label><label><input type="checkbox" name="edition" value="newsletter" checked> Monday newsletter</label><label><input type="checkbox" name="edition" value="audio"> Audio</label></div>
+<input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+<p class="fine">Free, no catch. We send a confirm link first. One click to unsubscribe. We never share your email.</p><div class="ok" role="status"></div></form>
 <figure class="photo" style="height:320px;margin:26px 0 0"><video class="" muted loop playsinline preload="none" poster="m/video/freight-train-aerial.jpg" data-src="m/video/freight-train-aerial.mp4" data-autoplay aria-hidden="true"></video></figure><p class="src">Header photo: Photos: Tomoyn (CC BY 4.0), via Wikimedia Commons. <a href="credits.html">All credits</a></p></div></div></section></main>
-<footer><div class="wrap cols"><div><img src="assets/fix-road.png" alt="FIX"><p>Australian freight intelligence. Road, rail and port disruptions, diesel and fuel levies, and the freight news that matters, by 6am.</p>
-<p class="sm">Working prototype. Every item links to its official source; confirm before you act. Briefings are written with AI from public data and checked by the FREIGHTRIX team. Data checked Mon 23 Nov 2026, 10:17 PM AEST.</p></div>
-<div><p><b style="color:#fff">Read and listen</b></p><p><a href="brief.html">Morning Briefing</a><br><a href="listen.html">Audio edition</a><br><a href="weekly.html">FIX Brief weekly</a></p></div>
-<div><p><b style="color:#fff">Tools and more</b></p><p><a href="road.html">Road information</a><br><a href="fuel.html">Fuel levy calculator</a><br><a href="esg.html">FIX ESG</a><br><a href="advertise.html">Advertise</a><br><a href="credits.html">Photo and video credits</a></p></div></div></footer>
+<footer><div class="wrap cols"><div><img src="assets/fix-road.png" alt="FIX"><p>Australian road freight and linehaul intelligence. Closures and delays by lane, diesel and fuel levies, and the industry news that matters, by 5am.</p>
+<p class="sm">Closures link to the official notice. Confirm before you act. Editions are written with AI from public data and checked by the FREIGHTRIX team. Data checked Tue 24 Nov 2026, 10:55 PM AEDT.</p></div>
+<div><p><b style="color:#fff">Read and listen</b></p><p><a href="brief.html">The Daily FIX</a><br><a href="listen.html">Audio edition</a><br><a href="road.html">AM and PM Linehaul FIX</a><br><a href="weekly.html">Monday FIX newsletter</a></p></div>
+<div><p><b style="color:#fff">Tools and more</b></p><p><a href="road.html">Road information</a><br><a href="fuel.html">Fuel levy calculator</a><br><a href="esg.html">FIX ESG</a><br><a href="advertise.html">Advertise</a><br><a href="credits.html">Credits and data sources</a><br><a href="privacy.html">Privacy</a></p></div></div></footer>
 <script>
-document.querySelectorAll('form.sub').forEach(f=>f.addEventListener('submit',e=>{if(!f.getAttribute('action')){e.preventDefault();
- const ok=f.querySelector('.ok');ok.style.display='block';ok.textContent='Prototype: sign up connects once the email account is set up, so nothing was saved yet.';}}));
+const API=document.documentElement.dataset.api||'';
+const QS=new URLSearchParams(location.search);
+(()=>{try{if(QS.get('ref'))localStorage.setItem('fx_ref',QS.get('ref'));['utm_source','utm_medium','utm_campaign'].forEach(k=>{if(QS.get(k))localStorage.setItem('fx_'+k,QS.get(k));});}catch(e){}})();
+const ls=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
+async function post(path,body){const r=await fetch(API+path,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});return r.json().catch(()=>({ok:false}));}
+document.querySelectorAll('form.sub').forEach(f=>f.addEventListener('submit',async e=>{e.preventDefault();
+ const ok=f.querySelector('.ok'),btn=f.querySelector('button[type=submit]');ok.style.display='block';
+ if(!API){ok.textContent='Prototype: sign up connects once the email account is set up, so nothing was saved yet.';return;}
+ const v=n=>[...f.querySelectorAll('input[name='+n+']:checked')].map(x=>x.value);
+ btn.disabled=true;ok.textContent='Signing you up...';
+ const r=await post('/subscribe',{email:f.email.value,editions:v('edition'),lanes:v('lane'),website:f.website.value,ref:ls('fx_ref'),
+  utm_source:ls('fx_utm_source'),utm_medium:ls('fx_utm_medium'),utm_campaign:ls('fx_utm_campaign'),landing_path:location.pathname});
+ btn.disabled=false;
+ ok.textContent=r.ok?(r.status==='active'?'You are already in. We updated your editions and lanes.':r.status==='waitlist'?'You are on the early access list. We will email you a link to confirm when the first editions go out.':'Nearly there. Check your inbox and click the link to confirm. It can take a minute, and check spam or promotions.'):(r.error||'Something went wrong. Please try again.');
+ if(r.ok&&window.plausible)plausible('Signup');}));
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src&&v.dataset.src)v.src=v.dataset.src;if(!reduce&&v.dataset.autoplay!==undefined)v.play().catch(()=>{});}else{v.pause();}}),{rootMargin:'200px'});
 document.querySelectorAll('video[data-src]').forEach(v=>io.observe(v));
+(()=>{const as=[...document.querySelectorAll('.catbar a')];const ss=as.map(a=>document.getElementById(a.dataset.cat)).filter(Boolean);if(!ss.length)return;
+ const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)as.forEach(a=>a.classList.toggle('on',a.dataset.cat===e.target.id));}),{rootMargin:'-140px 0px -60% 0px'});ss.forEach(x=>so.observe(x));})();
 document.querySelectorAll('[data-leghl]').forEach(a=>{const id=a.dataset.leghl;const g=()=>document.querySelector('.ausmap [data-leg="'+id+'"]');
  a.addEventListener('mouseenter',()=>g()&&g().classList.add('hl'));a.addEventListener('mouseleave',()=>g()&&g().classList.remove('hl'));});
 </script></body></html>

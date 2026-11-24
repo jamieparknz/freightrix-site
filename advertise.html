@@ -1,4 +1,4 @@
-<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><html lang="en-AU" data-api="https://nhgewidrqosscmjqyesz.supabase.co/functions/v1/api"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Advertise | FREIGHTRIX</title><meta name="description" content="Sponsor the FREIGHTRIX briefings."><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#011223">
 <meta property="og:title" content="Advertise | FREIGHTRIX"><meta property="og:description" content="Sponsor the FREIGHTRIX briefings."><meta property="og:image" content="assets/freightrix-globe.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -52,6 +52,16 @@ form.sub .btn{height:56px}
 .light form.sub input[type=email]{box-shadow:inset 0 0 0 1.5px #B9C6D0}.light .picks label{border-color:#C6D1D9;color:var(--text)}
 .fine{font-size:13px;color:#9FB2C0;margin:0}.light .fine{color:var(--mute)}
 .ok{display:none;background:var(--steel);color:#E6EEF3;border-radius:var(--r);padding:12px 14px;font-size:14px}
+/* category bar: jump straight to a category on the home page */
+.catbar{position:sticky;top:72px;z-index:39;background:var(--lime);border-bottom:2px solid var(--ink)}
+.catbar .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-top:8px;padding-bottom:8px}
+.catbar .wrap::-webkit-scrollbar{display:none}
+.catbar a{flex:none;font:800 14px/1 var(--cond);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-decoration:none;padding:9px 14px;border-radius:99px;border:1.5px solid transparent}
+.catbar a:hover{border-color:var(--ink)}.catbar a.on{background:var(--ink);color:var(--lime)}
+.catbar a i{font-style:normal;display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:1px;background:var(--ink)}
+.catbar a.alert i{background:var(--red)}
+[id]{scroll-margin-top:136px}
+.lanes{margin-top:10px}.lanes summary{cursor:pointer;font:600 14px var(--body)}.lanes .picks{margin-top:10px}
 /* ticker */
 .ticker{position:relative;z-index:3;background:var(--lime);color:var(--ink);overflow:hidden;white-space:nowrap;font:700 15px/44px var(--body)}
 .ticker .tr{display:inline-flex;gap:46px;padding-left:100%;animation:tick 70s linear infinite}
@@ -242,27 +252,54 @@ a.card:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
 @media (max-width:600px){.grid3,.grid4{grid-template-columns:1fr}.stack{display:none}.bhero{padding:36px 0 28px}.stack .card{width:92%;left:4%}.stack .s3,.stack .s2{display:none}
  .zonedk{padding:24px 18px;border-radius:18px}.rows .card .cimg{width:96px;flex-basis:96px}.feat .cb{padding:22px}.hscroll{grid-auto-columns:85%}}
 </style></head><body class="brew">
-<header class="top"><div class="wrap"><a href="index.html" aria-label="FREIGHTRIX home"><img class="logo" src="assets/freightrix-road.png" alt="FREIGHTRIX"></a><a class="livepill" href="road.html"><i></i>2 legs with closures<span>&nbsp;and 6 with incidents</span></a>
-<nav><a href="brief.html" class="">Morning Briefing</a><a href="listen.html" class="">Listen</a><a href="road.html" class="">Road</a><a href="fuel.html" class="">Re-Fuel</a><a href="weekly.html" class="">Weekly</a><a href="esg.html" class="">ESG</a><a class="btn" style="min-height:42px;padding:11px 16px;font-size:15px;color:var(--ink)" href="index.html#join">Subscribe</a></nav></div></header>
-<main><section class="mast"><img class="bgimg" src="m/photos/container-truck-port-cranes.jpg" srcset="m/photos/container-truck-port-cranes-sm.jpg 900w, m/photos/container-truck-port-cranes.jpg 2400w" sizes="100vw" alt="container truck port cranes"  decoding="async"><div class="wrap"><p class="kick">Advertise</p><h1>Reach the people who run and buy freight.</h1>
+<header class="top"><div class="wrap"><a href="index.html" aria-label="FREIGHTRIX home"><img class="logo" src="assets/freightrix-road.png" alt="FREIGHTRIX"></a><a class="livepill" href="road.html"><i></i>0 legs with a closure<span>&nbsp;and 7 with incidents</span></a>
+<nav><a href="brief.html" class="">Daily FIX</a><a href="listen.html" class="">Listen</a><a href="road.html" class="">Road</a><a href="fuel.html" class="">Re-Fuel</a><a href="weekly.html" class="">Monday FIX</a><a href="esg.html" class="">ESG</a><a class="btn" style="min-height:42px;padding:11px 16px;font-size:15px;color:var(--ink)" href="index.html#join">Subscribe</a></nav></div></header>
+<nav class="catbar" aria-label="Jump to a category"><div class="wrap"><a href="index.html#linehaul" data-cat="linehaul" class=""><i></i>Linehaul update</a><a href="index.html#industry" data-cat="industry" class=""><i></i>Industry update</a><a href="index.html#fuel" data-cat="fuel" class=""><i></i>Fuel update</a><a href="index.html#esg" data-cat="esg" class=""><i></i>ESG update</a></div></nav>
+<main><section class="mast"><img class="bgimg" src="m/photos/b-double-red-highway.jpg" srcset="m/photos/b-double-red-highway-sm.jpg 900w, m/photos/b-double-red-highway.jpg 2400w" sizes="100vw" alt="b double red highway"  decoding="async"><div class="wrap"><p class="kick">Advertise</p><h1>Reach the people who run and buy freight.</h1>
 <p class="lede" style="color:#D3DEE6">One sponsor per edition, beside the disruption and fuel information readers open FREIGHTRIX for.</p></div></section>
 <section class="light"><div class="wrap"><div class="list">
-<div class="li"><h3>Morning Briefing</h3><p>Logo, three lines and a link after Critical now. Weekdays.</p></div>
+<div class="li"><h3>The Daily FIX</h3><p>Logo, three lines and a link after the industry stories. Every day, 5am.</p></div>
+<div class="li"><h3>AM and PM Linehaul FIX</h3><p>One line at the foot of the linehaul editions, read by schedulers and dispatch at 5am and 4pm.</p></div>
 <div class="li"><h3>Audio edition</h3><p>A read at the top and the sign off, plus the show notes.</p></div>
-<div class="li"><h3>FIX Brief and Re-Fuel</h3><p>The Friday edition, and the fuel levy calculator page.</p></div>
+<div class="li"><h3>Monday FIX and Re-Fuel</h3><p>The Monday night newsletter, and the fuel levy calculator page.</p></div>
 <div class="li"><h3>Corridor pages</h3><p>Your name on a linehaul leg's live page and its closure alerts.</p></div>
 <div class="li"><h3>Founding sponsors</h3><p>A small number before launch, with first choice of slots and a locked first year rate. Audience numbers shared openly each month.</p></div></div>
-<p style="margin-top:28px"><a class="btn" href="mailto:jamieparknz0@gmail.com?subject=FREIGHTRIX%20sponsorship">Talk to us about sponsoring</a></p><p class="src">Header photo: Photos: Bahnfrend (CC BY-SA 4.0), via Wikimedia Commons. <a href="credits.html">All credits</a></p></div></section></main>
-<footer><div class="wrap cols"><div><img src="assets/fix-road.png" alt="FIX"><p>Australian freight intelligence. Road, rail and port disruptions, diesel and fuel levies, and the freight news that matters, by 6am.</p>
-<p class="sm">Working prototype. Every item links to its official source; confirm before you act. Briefings are written with AI from public data and checked by the FREIGHTRIX team. Data checked Mon 23 Nov 2026, 10:17 PM AEST.</p></div>
-<div><p><b style="color:#fff">Read and listen</b></p><p><a href="brief.html">Morning Briefing</a><br><a href="listen.html">Audio edition</a><br><a href="weekly.html">FIX Brief weekly</a></p></div>
-<div><p><b style="color:#fff">Tools and more</b></p><p><a href="road.html">Road information</a><br><a href="fuel.html">Fuel levy calculator</a><br><a href="esg.html">FIX ESG</a><br><a href="advertise.html">Advertise</a><br><a href="credits.html">Photo and video credits</a></p></div></div></footer>
+<form id="sp" class="card light" style="padding:26px;margin-top:34px;display:grid;gap:12px;max-width:760px"><h3>Tell us what you're after</h3>
+<input name="name" required placeholder="Your name" style="width:100%;height:52px;padding:0 14px;border:1.5px solid #B9C6D0;border-radius:8px;font:500 16px var(--body)"><input name="company" required placeholder="Company" style="width:100%;height:52px;padding:0 14px;border:1.5px solid #B9C6D0;border-radius:8px;font:500 16px var(--body)">
+<input name="email" type="email" required placeholder="Work email" style="width:100%;height:52px;padding:0 14px;border:1.5px solid #B9C6D0;border-radius:8px;font:500 16px var(--body)"><input name="phone" placeholder="Phone (optional)" style="width:100%;height:52px;padding:0 14px;border:1.5px solid #B9C6D0;border-radius:8px;font:500 16px var(--body)">
+<div class="picks"><label><input type="checkbox" name="interest" value="daily"> Daily FIX</label><label><input type="checkbox" name="interest" value="linehaul"> AM and PM Linehaul FIX</label><label><input type="checkbox" name="interest" value="newsletter"> Monday newsletter</label><label><input type="checkbox" name="interest" value="audio"> Audio edition</label><label><input type="checkbox" name="interest" value="corridor"> Corridor pages</label><label><input type="checkbox" name="interest" value="classifieds"> Classifieds (jobs, gear, services)</label><label><input type="checkbox" name="interest" value="founding"> Founding sponsor</label></div>
+<select name="budget" aria-label="Monthly budget" style="width:100%;height:52px;padding:0 14px;border:1.5px solid #B9C6D0;border-radius:8px;font:500 16px var(--body)"><option value="">Monthly budget (optional)</option><option>Under A$500</option><option>A$500 to 2,000</option><option>A$2,000 to 5,000</option><option>Over A$5,000</option></select>
+<textarea name="message" rows="4" aria-label="Message" placeholder="Anything else: who you want to reach, timing" style="width:100%;padding:12px 14px;border:1.5px solid #B9C6D0;border-radius:8px;font:500 16px var(--body)"></textarea>
+<input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+<button class="btn" type="submit">Send</button><div class="ok" role="status"></div></form><p class="src">Header photo: Photos: Andrew Thomas from Shrewsbury, UK (CC BY-SA 2.0), via Wikimedia Commons. <a href="credits.html">All credits</a></p></div></section></main>
+<footer><div class="wrap cols"><div><img src="assets/fix-road.png" alt="FIX"><p>Australian road freight and linehaul intelligence. Closures and delays by lane, diesel and fuel levies, and the industry news that matters, by 5am.</p>
+<p class="sm">Closures link to the official notice. Confirm before you act. Editions are written with AI from public data and checked by the FREIGHTRIX team. Data checked Tue 24 Nov 2026, 10:55 PM AEDT.</p></div>
+<div><p><b style="color:#fff">Read and listen</b></p><p><a href="brief.html">The Daily FIX</a><br><a href="listen.html">Audio edition</a><br><a href="road.html">AM and PM Linehaul FIX</a><br><a href="weekly.html">Monday FIX newsletter</a></p></div>
+<div><p><b style="color:#fff">Tools and more</b></p><p><a href="road.html">Road information</a><br><a href="fuel.html">Fuel levy calculator</a><br><a href="esg.html">FIX ESG</a><br><a href="advertise.html">Advertise</a><br><a href="credits.html">Credits and data sources</a><br><a href="privacy.html">Privacy</a></p></div></div></footer>
 <script>
-document.querySelectorAll('form.sub').forEach(f=>f.addEventListener('submit',e=>{if(!f.getAttribute('action')){e.preventDefault();
- const ok=f.querySelector('.ok');ok.style.display='block';ok.textContent='Prototype: sign up connects once the email account is set up, so nothing was saved yet.';}}));
+const API=document.documentElement.dataset.api||'';
+const QS=new URLSearchParams(location.search);
+(()=>{try{if(QS.get('ref'))localStorage.setItem('fx_ref',QS.get('ref'));['utm_source','utm_medium','utm_campaign'].forEach(k=>{if(QS.get(k))localStorage.setItem('fx_'+k,QS.get(k));});}catch(e){}})();
+const ls=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
+async function post(path,body){const r=await fetch(API+path,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});return r.json().catch(()=>({ok:false}));}
+document.querySelectorAll('form.sub').forEach(f=>f.addEventListener('submit',async e=>{e.preventDefault();
+ const ok=f.querySelector('.ok'),btn=f.querySelector('button[type=submit]');ok.style.display='block';
+ if(!API){ok.textContent='Prototype: sign up connects once the email account is set up, so nothing was saved yet.';return;}
+ const v=n=>[...f.querySelectorAll('input[name='+n+']:checked')].map(x=>x.value);
+ btn.disabled=true;ok.textContent='Signing you up...';
+ const r=await post('/subscribe',{email:f.email.value,editions:v('edition'),lanes:v('lane'),website:f.website.value,ref:ls('fx_ref'),
+  utm_source:ls('fx_utm_source'),utm_medium:ls('fx_utm_medium'),utm_campaign:ls('fx_utm_campaign'),landing_path:location.pathname});
+ btn.disabled=false;
+ ok.textContent=r.ok?(r.status==='active'?'You are already in. We updated your editions and lanes.':r.status==='waitlist'?'You are on the early access list. We will email you a link to confirm when the first editions go out.':'Nearly there. Check your inbox and click the link to confirm. It can take a minute, and check spam or promotions.'):(r.error||'Something went wrong. Please try again.');
+ if(r.ok&&window.plausible)plausible('Signup');}));
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src&&v.dataset.src)v.src=v.dataset.src;if(!reduce&&v.dataset.autoplay!==undefined)v.play().catch(()=>{});}else{v.pause();}}),{rootMargin:'200px'});
 document.querySelectorAll('video[data-src]').forEach(v=>io.observe(v));
+(()=>{const as=[...document.querySelectorAll('.catbar a')];const ss=as.map(a=>document.getElementById(a.dataset.cat)).filter(Boolean);if(!ss.length)return;
+ const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)as.forEach(a=>a.classList.toggle('on',a.dataset.cat===e.target.id));}),{rootMargin:'-140px 0px -60% 0px'});ss.forEach(x=>so.observe(x));})();
 document.querySelectorAll('[data-leghl]').forEach(a=>{const id=a.dataset.leghl;const g=()=>document.querySelector('.ausmap [data-leg="'+id+'"]');
  a.addEventListener('mouseenter',()=>g()&&g().classList.add('hl'));a.addEventListener('mouseleave',()=>g()&&g().classList.remove('hl'));});
-</script></body></html>
+(()=>{const f=document.getElementById('sp');if(!f)return;f.onsubmit=async e=>{e.preventDefault();const ok=f.querySelector('.ok');ok.style.display='block';
+if(!API){ok.textContent='Prototype: the form connects at launch. Email us in the meantime.';return;}
+const d=Object.fromEntries(new FormData(f));d.interest=[...f.querySelectorAll('input[name=interest]:checked')].map(x=>x.value);
+const r=await post('/sponsor',d);ok.textContent=r.ok?'Thanks. We will be in touch within one business day.':(r.error||'Something went wrong.');if(r.ok)f.reset();};})();</script></body></html>
