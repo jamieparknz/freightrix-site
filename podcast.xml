@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<channel><title>The Daily FIX</title><link>https://jamieparknz.github.io/freightrix-site/listen.html</link><language>en-au</language>
+<atom:link href="https://jamieparknz.github.io/freightrix-site/podcast.xml" rel="self" type="application/rss+xml"/>
+<description>Australian road freight and linehaul in about five minutes, every morning: closures and delays on the interstate lanes, diesel, and the industry news that matters. From FREIGHTRIX. The voice is computer generated and each edition is checked by the FREIGHTRIX team.</description><itunes:summary>Australian road freight and linehaul in about five minutes, every morning: closures and delays on the interstate lanes, diesel, and the industry news that matters. From FREIGHTRIX. The voice is computer generated and each edition is checked by the FREIGHTRIX team.</itunes:summary><itunes:author>FREIGHTRIX</itunes:author>
+<itunes:image href="https://jamieparknz.github.io/freightrix-site/assets/podcast-cover.jpg"/><image><url>https://jamieparknz.github.io/freightrix-site/assets/podcast-cover.jpg</url><title>The Daily FIX</title><link>https://jamieparknz.github.io/freightrix-site/listen.html</link></image>
+<itunes:category text="News"><itunes:category text="Business News"/></itunes:category><itunes:explicit>false</itunes:explicit><itunes:type>episodic</itunes:type>
+<copyright>FREIGHTRIX</copyright>
+<item><title>The Daily FIX, Tuesday 24 November 2026</title><description>Morning. It&#x27;s the Daily FIX for Tuesday the twenty fourth of November. The big one today is fuel. The fuel cost recovery rules for trucking are back in force, starting today. Diesel&#x27;s down almost nineteen cents a litre on a month ago. And on the roads, no unplanned closures on any interstate lane. Queensland&#x27;s the slow one. In this episode: Yesterday in the industry, Overnight on the main lanes, Rail, Weather and fire, Planned closures.</description><link>https://jamieparknz.github.io/freightrix-site/listen.html</link>
+<guid isPermaLink="false">freightrix-daily-fix-2026-11-24</guid><pubDate>Tue, 24 Nov 2026 05:00:00 +1100</pubDate>
+<enclosure url="https://jamieparknz.github.io/freightrix-site/media/episodes/pod-2026-11-24.mp3" length="2545196" type="audio/mpeg"/><itunes:duration>212</itunes:duration>
+<itunes:explicit>false</itunes:explicit><itunes:episodeType>full</itunes:episodeType></item>
+</channel></rss>
