@@ -1,6 +1,6 @@
 {
-  "name": "FREIGHTRIX",
-  "short_name": "FREIGHTRIX",
+  "name": "FREIGHTIX",
+  "short_name": "FREIGHTIX",
   "description": "Australian freight intelligence: road and linehaul disruptions, fuel and freight news.",
   "start_url": "index.html",
   "display": "standalone",
@@ -9,6 +9,6 @@
   "icons": [
     { "src": "assets/brand/icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "assets/brand/icon-512.png", "sizes": "512x512", "type": "image/png" },
-    { "src": "assets/brand/freightrix-symbol.svg", "sizes": "any", "type": "image/svg+xml" }
+    { "src": "assets/brand/freightix-symbol.svg", "sizes": "any", "type": "image/svg+xml" }
   ]
 }
