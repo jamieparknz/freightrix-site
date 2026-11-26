@@ -278,7 +278,7 @@ const API=document.documentElement.dataset.api||'';
 const QS=new URLSearchParams(location.search);
 (()=>{try{if(QS.get('ref'))localStorage.setItem('fx_ref',QS.get('ref'));['utm_source','utm_medium','utm_campaign'].forEach(k=>{if(QS.get(k))localStorage.setItem('fx_'+k,QS.get(k));});}catch(e){}})();
 const ls=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
-async function post(path,body){const r=await fetch(API+path,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});return r.json().catch(()=>({ok:false}));}
+async function post(path,body){try{const r=await fetch(API+path,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});return await r.json().catch(()=>({ok:false}));}catch(e){return {ok:false,error:'We could not reach the server. Check your connection and try again.'};}}
 document.querySelectorAll('form.sub').forEach(f=>f.addEventListener('submit',async e=>{e.preventDefault();
  const ok=f.querySelector('.ok'),btn=f.querySelector('button[type=submit]');ok.style.display='block';
  if(!API){ok.textContent='Prototype: sign up connects once the email account is set up, so nothing was saved yet.';return;}
