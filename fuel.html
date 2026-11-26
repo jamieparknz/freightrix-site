@@ -258,77 +258,93 @@ a.card:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
 <nav id="sitenav" aria-label="Main"><a href="brief.html" class="">Daily FIX</a><a href="listen.html" class="">Listen</a><a href="road.html" class="">Road</a><a href="fuel.html" class="on">Re-Fuel</a><a href="weekly.html" class="">Monday FIX</a><a href="esg.html" class="">ESG</a><a class="btn" style="min-height:42px;padding:11px 16px;font-size:15px;color:var(--ink)" href="index.html#join">Subscribe</a></nav><button class="menubtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="sitenav"><svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div></header><script>(function(){var t=document.querySelector(".top"),b=t&&t.querySelector(".menubtn");if(!b)return;function set(o){t.classList.toggle("open",o);b.setAttribute("aria-expanded",o?"true":"false");b.setAttribute("aria-label",o?"Close menu":"Menu")}b.addEventListener("click",function(){set(!t.classList.contains("open"))});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&t.classList.contains("open")){set(false);b.focus()}});document.addEventListener("click",function(e){if(t.classList.contains("open")&&!t.contains(e.target))set(false)});window.matchMedia("(min-width:601px)").addEventListener("change",function(m){if(m.matches)set(false)})})();</script>
 <nav class="catbar" aria-label="Jump to a category"><div class="wrap"><a href="index.html#linehaul" data-cat="linehaul" class=""><i></i>Linehaul update</a><a href="index.html#industry" data-cat="industry" class=""><i></i>Industry update</a><a href="index.html#fuel" data-cat="fuel" class=""><i></i>Fuel update</a><a href="index.html#esg" data-cat="esg" class=""><i></i>ESG update</a></div></nav>
 <main class="fl"><section class="fl-head"><div class="wrap">
-<p class="kick">FIX Intelligence, Analytics Re-Fuel</p><h1>Fuel levy calculator</h1>
-<p class="fl-sub">On AIP diesel terminal gate prices to <b id="dataDate"></b>. The maths on screen, ready to send to your customer.</p><span class="fl-stale" id="stale" hidden></span></div></section>
+<p class="kick">FIX Intelligence, Re-Fuel</p><h1>Fuel levy calculator</h1>
+<p class="fl-sub">Answer three questions and get the fuel levy to add to your freight rates. Uses official diesel prices to <b id="dataDate"></b>. Free, no sign-up.</p><span class="fl-stale" id="stale" hidden></span></div></section>
 <section class="fl-main"><div class="wrap fl-grid">
 <div class="fl-top">
 <div class="fl-answer" id="answer">
- <div class="fl-ans-top"><p class="kick">Your fuel levy</p><span class="fl-for" id="ansFor"></span></div>
+ <p class="kick fl-k">Your fuel levy</p>
  <div class="fl-big num" id="levy" aria-live="polite" aria-atomic="true">&ndash;</div>
  <p class="fl-delta" id="delta"></p>
- <div class="fl-tabs" role="tablist" aria-label="Show the levy as">
-  <button type="button" role="tab" id="tab-pct" aria-controls="tp-pct" aria-selected="true">%</button>
-  <button type="button" role="tab" id="tab-job" aria-controls="tp-job" aria-selected="false" tabindex="-1">$ per job</button>
-  <button type="button" role="tab" id="tab-km" aria-controls="tp-km" aria-selected="false" tabindex="-1">c/km</button>
+
+ <div class="fl-job">
+  <label for="rate">On a job worth</label>
+  <div class="fl-dollar"><span aria-hidden="true">$</span><input id="rate" type="number" inputmode="decimal" min="0" step="1" aria-describedby="jobOut"></div>
+  <p id="jobOut" class="fl-jobout"></p>
  </div>
- <div class="fl-panel" id="tp-pct" role="tabpanel" aria-labelledby="tab-pct"><p id="pctTxt"></p></div>
- <div class="fl-panel" id="tp-job" role="tabpanel" aria-labelledby="tab-job" hidden>
-  <label for="rate">Base freight rate, $ ex GST</label><input id="rate" type="number" inputmode="decimal" min="0" step="0.01" placeholder="eg 1000 for a job, or 3.20 per km">
-  <div class="fl-out"><div><span>Fuel levy</span><b class="num" id="outLevy">&ndash;</b></div><div><span>Total with levy</span><b class="num" id="outTotal">&ndash;</b></div></div>
+
+ <div class="fl-board" aria-label="Diesel price then and now">
+  <div><span id="thenLbl">When your rates were set</span><b class="num" id="thenP">&ndash;</b><small id="thenD"></small></div>
+  <div class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+  <div><span>Now</span><b class="num" id="nowP">&ndash;</b><small id="nowD"></small></div>
+  <p class="cap" id="boardCap">Wholesale diesel, cents a litre inc GST</p>
  </div>
- <div class="fl-panel" id="tp-km" role="tabpanel" aria-labelledby="tab-km" hidden>
-  <label for="lp100">Your truck's fuel use, L/100 km</label><input id="lp100" type="number" inputmode="decimal" min="5" max="150" step="1" placeholder="eg 50">
-  <div class="fl-chips" id="lpChips" style="margin-top:8px"><button type="button" data-lp="30" aria-pressed="false">Rigid ~30</button><button type="button" data-lp="50" aria-pressed="false">Semi ~50</button><button type="button" data-lp="60" aria-pressed="false">B-double ~60</button></div>
-  <div class="fl-out"><div><span>Levy per km</span><b class="num" id="outCpk">&ndash;</b></div><div><span>Per 1,000 km</span><b class="num" id="outPer1000">&ndash;</b></div></div>
-  <p class="fl-note">Presets are rough guides. Use your own fleet's figure from fuel cards or telematics.</p>
- </div>
- <details class="fl-maths"><summary>Show the maths</summary><ol class="fl-work" id="workings"></ol><p class="fl-note" id="taxNote"></p></details>
- <div class="fl-actions"><button type="button" class="fl-btn pri" data-act="notice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2M6 14h12v7H6z"/></svg>Customer notice</button><button type="button" class="fl-btn sec" data-act="share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13"/></svg>Share</button><button type="button" class="fl-btn sec" data-act="copy">Copy link</button></div>
+
+ <details class="fl-sub2" id="kmBox"><summary>Charge per kilometre instead?</summary>
+  <label for="lp100" class="fl-l2">Your truck's fuel use, litres per 100 km</label>
+  <div class="fl-chips" id="lpChips"><button type="button" data-lp="30" aria-pressed="false">Rigid<small>~30 L</small></button><button type="button" data-lp="50" aria-pressed="false">Semi<small>~50 L</small></button><button type="button" data-lp="60" aria-pressed="false">B-double<small>~60 L</small></button></div>
+  <input id="lp100" type="number" inputmode="decimal" min="5" max="150" step="1" placeholder="Or type your own, eg 48" aria-label="Litres per 100 km">
+  <p class="fl-jobout" id="kmOut"></p>
+  <p class="fl-note">These are rough guides. Your fuel card or telematics will give your real figure.</p>
+ </details>
+
+ <details class="fl-sub2 fl-maths"><summary>See how it's worked out</summary><ol class="fl-work" id="workings"></ol><p class="fl-note" id="taxNote"></p></details>
+
+ <div class="fl-actions"><button type="button" class="fl-btn pri" data-act="notice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2M6 14h12v7H6z"/></svg>Make a customer letter</button><button type="button" class="fl-btn sec" data-act="share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13"/></svg>Send</button><button type="button" class="fl-btn sec" data-act="copy">Copy link</button></div>
 </div>
 
 <form class="fl-setup" id="setup" onsubmit="return false">
- <h2 class="fl-h">Your setup</h2><p class="fl-hint" style="margin:0">Changes update the levy straight away and are saved on this device.</p>
- <fieldset><legend>When were your rates last set?</legend>
-  <div class="fl-chips" id="baseChips"><button type="button" data-base="3m" aria-pressed="false">3 months ago</button><button type="button" data-base="6m" aria-pressed="false">6 months</button><button type="button" data-base="12m" aria-pressed="true">12 months</button><button type="button" data-base="fwc" aria-pressed="false">6 Mar 2026<small>FWC order base</small></button></div>
-  <div class="fl-row"><div><label for="basedate">Or pick the date</label><input id="basedate" type="date"></div><div><label for="baseprice">Or type the price, c/L inc GST</label><input id="baseprice" type="number" inputmode="decimal" min="50" max="500" step="0.1"></div></div>
-  <p class="fl-hint">The base price is the diesel price already built into your freight rate.</p><p class="fl-err" id="baseErr"></p>
+ <h2 class="fl-h">Your numbers</h2><p class="fl-intro">Three questions. Tap an answer and the levy updates straight away.</p>
+
+ <fieldset class="fl-step"><legend><span class="n" aria-hidden="true">1</span>When did you last set your rates?</legend>
+  <div class="fl-chips big" id="baseChips"><button type="button" data-base="3m" aria-pressed="false">3 months ago</button><button type="button" data-base="6m" aria-pressed="false">6 months ago</button><button type="button" data-base="12m" aria-pressed="false">12 months ago</button><button type="button" data-base="fwc" aria-pressed="false">6 Mar 2026<small>Fair Work order date</small></button><button type="button" data-base="date" aria-pressed="false">Pick a date</button></div>
+  <div class="fl-reveal" id="baseDateBox" hidden><label for="basedate">Date your rates were set</label><input id="basedate" type="date"></div>
+  <button type="button" class="fl-link" id="bpToggle" aria-expanded="false" aria-controls="bpBox">I know the diesel price in my rates</button>
+  <div class="fl-reveal" id="bpBox" hidden><label for="baseprice">Diesel price built into your rates, cents a litre inc GST</label><input id="baseprice" type="number" inputmode="decimal" min="50" max="500" step="0.1" placeholder="eg 185.0"></div>
+  <p class="fl-err" id="baseErr"></p>
  </fieldset>
- <fieldset><legend>Fuel share of your costs</legend>
-  <div class="fl-chips" id="wChips"><button type="button" data-w="20" aria-pressed="false">Metro<small>20%</small></button><button type="button" data-w="28" aria-pressed="false">Intrastate<small>28%</small></button><button type="button" data-w="35" aria-pressed="false">Linehaul<small>35%</small></button></div>
-  <div class="fl-row" style="grid-template-columns:1fr"><div><label for="weight">Your fuel weighting</label><div class="fl-suffix"><input id="weight" type="number" inputmode="decimal" min="1" max="80" step="0.5"><em>%</em></div></div></div>
+
+ <fieldset class="fl-step"><legend><span class="n" aria-hidden="true">2</span>How much of your running costs is fuel?</legend>
+  <div class="fl-chips big" id="wChips"><button type="button" data-w="20" aria-pressed="false">Local and metro<small>about 20%</small></button><button type="button" data-w="30" aria-pressed="false">Regional<small>about 30%</small></button><button type="button" data-w="35" aria-pressed="false">Interstate linehaul<small>about 35%</small></button><button type="button" data-w="custom" aria-pressed="false">My own figure</button></div>
+  <div class="fl-reveal" id="wBox" hidden><label for="weight">Fuel as a share of your total costs</label><div class="fl-suffix"><input id="weight" type="number" inputmode="decimal" min="1" max="80" step="0.5"><em>%</em></div>
+   <button type="button" class="fl-link" id="wcalc" aria-expanded="false" aria-controls="wbox2">Work it out from my fuel bill</button>
+   <div id="wbox2" class="fl-row" hidden><div><label for="fuelcost">Fuel bill for the year, $</label><input id="fuelcost" type="number" inputmode="decimal" min="0"></div><div><label for="totcost">All running costs for the year, $</label><input id="totcost" type="number" inputmode="decimal" min="0"></div></div>
+  </div>
   <p class="fl-err" id="wErr"></p>
-  <button type="button" class="fl-link" id="wcalc" aria-expanded="false" aria-controls="wbox">Work it out from my costs</button>
-  <div id="wbox" class="fl-row" hidden><div><label for="fuelcost">Annual fuel spend, $ ex GST</label><input id="fuelcost" type="number" inputmode="decimal" min="0"></div><div><label for="totcost">Total operating cost, $ ex GST</label><input id="totcost" type="number" inputmode="decimal" min="0"></div></div>
-  <p class="fl-hint">Presets are typical starting points. Your own profit and loss is better.</p>
+  <p class="fl-hint">Not sure? Most fleets sit between 20% and 35%. Longer runs mean fuel is a bigger share.</p>
  </fieldset>
- <div style="padding-top:16px"><label class="fl-lbl" for="city">Where you buy fuel</label>
-  <select id="city"><option>National</option><option>Sydney</option><option>Melbourne</option><option>Brisbane</option><option>Adelaide</option><option>Perth</option><option>Darwin</option><option>Hobart</option></select>
-  <p class="fl-hint">Use National if you run interstate or your contract names the national average.</p>
- </div>
- <details class="fl-more" id="adv"><summary>More options <span id="advSum"></span></summary>
-  <div class="fl-field"><label class="fl-lbl" for="freq">Review frequency</label><select id="freq"><option value="7">Weekly</option><option value="14">Fortnightly</option><option value="30" selected>Monthly</option></select><p class="fl-hint">Prices are averaged over this many days. The FWC order needs a review at least monthly.</p></div>
-  <div class="fl-field"><label class="fl-lbl" for="basis">Price basis</label><select id="basis"><option value="ex">Excluding GST (most common)</option><option value="net">Net of fuel tax credit</option><option value="inc">Including GST</option></select><p class="fl-hint">Net of fuel tax credit uses the credit rate in force on each date.</p></div>
-  <div class="fl-field"><span class="fl-lbl" id="winLbl">Price at each date</span><div class="fl-seg" role="radiogroup" aria-labelledby="winLbl"><label><input type="radio" name="win" value="match" checked>Period average</label><label><input type="radio" name="win" value="day">Exact day</label></div><p class="fl-hint">Period average uses the same averaging window for your base and today, so the two are like for like.</p></div>
-  <div class="fl-field"><label class="fl-lbl" for="calcdate">Calculate for</label><input id="calcdate" type="date"><p class="fl-hint">Defaults to the latest prices. Pick an earlier date to check a past levy.</p></div>
-  <button type="button" class="fl-link" id="reset">Reset to defaults</button>
+
+ <fieldset class="fl-step"><legend><span class="n" aria-hidden="true">3</span>Where do you buy most of your diesel?</legend>
+  <div class="fl-chips" id="cityChips"><button type="button" data-city="National" aria-pressed="false">Australia-wide</button><button type="button" data-city="Sydney" aria-pressed="false">Sydney</button><button type="button" data-city="Melbourne" aria-pressed="false">Melbourne</button><button type="button" data-city="Brisbane" aria-pressed="false">Brisbane</button><button type="button" data-city="Adelaide" aria-pressed="false">Adelaide</button><button type="button" data-city="Perth" aria-pressed="false">Perth</button><button type="button" data-city="Darwin" aria-pressed="false">Darwin</button><button type="button" data-city="Hobart" aria-pressed="false">Hobart</button></div>
+  <p class="fl-hint">Running interstate? Pick Australia-wide.</p>
+ </fieldset>
+
+ <details class="fl-more" id="adv"><summary>Contract settings <span id="advSum"></span></summary>
+  <p class="fl-hint" style="margin:0 0 14px">Leave these alone unless your contract spells out how the levy is worked out.</p>
+  <div class="fl-field"><span class="fl-lbl" id="freqLbl">How often you review the levy</span><div class="fl-seg three" role="radiogroup" aria-labelledby="freqLbl"><label><input type="radio" name="freq" value="7">Weekly</label><label><input type="radio" name="freq" value="14">Fortnightly</label><label><input type="radio" name="freq" value="30">Monthly</label></div><p class="fl-hint">We average diesel prices over this period. The Fair Work order needs at least monthly.</p></div>
+  <div class="fl-field"><span class="fl-lbl" id="basisLbl">Which diesel price to use</span><div class="fl-seg" role="radiogroup" aria-labelledby="basisLbl"><label><input type="radio" name="basis" value="ex">Excluding GST<small>most common</small></label><label><input type="radio" name="basis" value="net">After fuel tax credit</label><label><input type="radio" name="basis" value="inc">Including GST</label></div><p class="fl-hint">"After fuel tax credit" takes off the ATO credit you claim back, at the rate on each date.</p></div>
+  <div class="fl-field"><span class="fl-lbl" id="winLbl">Price on each date</span><div class="fl-seg" role="radiogroup" aria-labelledby="winLbl"><label><input type="radio" name="win" value="match">Average over the review period</label><label><input type="radio" name="win" value="day">Price on the exact day</label></div></div>
+  <div class="fl-field"><label class="fl-lbl" for="calcdate">Work it out as at</label><input id="calcdate" type="date"><p class="fl-hint">Leave as the latest date unless you are checking a past levy.</p></div>
+  <button type="button" class="fl-link" id="reset">Start again with the defaults</button>
  </details>
 </form>
 </div>
+
 <div class="fl-charts">
- <div class="fl-chart"><div class="fl-chart-head"><div><h3>Diesel price, <span id="cityname"></span></h3><p class="fl-scrubhint">Drag or hover across the chart to read a day.</p></div><div class="fl-chips" id="rangeChips"><button type="button" data-r="6" aria-pressed="false">6M</button><button type="button" data-r="12" aria-pressed="true">1Y</button><button type="button" data-r="0" aria-pressed="false">All</button></div></div>
-  <div class="fl-plot" id="chart"></div><p class="src">AIP average diesel terminal gate price, c/L inc GST. Dashed line is your base price.</p></div>
- <div class="fl-chart"><h3>What this levy would have been</h3><p class="fl-scrubhint">Weekly, over the past year, with your base and weighting held fixed.</p>
+ <div class="fl-chart"><div class="fl-chart-head"><div><h3>Diesel price, <span id="cityname"></span></h3><p class="fl-scrubhint">Touch or hover the chart to read any day.</p></div><div class="fl-chips" id="rangeChips"><button type="button" data-r="6" aria-pressed="false">6 months</button><button type="button" data-r="12" aria-pressed="false">1 year</button><button type="button" data-r="0" aria-pressed="false">All</button></div></div>
+  <div class="fl-plot" id="chart"></div><p class="src">Wholesale diesel (AIP terminal gate price), cents a litre inc GST. The dashed line is the price when your rates were set.</p></div>
+ <div class="fl-chart"><h3>Your levy each week, last 12 months</h3><p class="fl-scrubhint">Using your answers above. Green bars mean diesel was cheaper than in your rates.</p>
   <div class="fl-plot" id="hist"></div></div>
 </div>
 </div></section>
 
-<div class="fl-bar" id="flbar" aria-hidden="true"><div class="val">Fuel levy<b class="num" id="barLevy">&ndash;</b></div><button type="button" class="fl-btn sec" data-act="share" tabindex="-1">Share</button><button type="button" class="fl-btn pri" data-act="notice" tabindex="-1">Customer notice</button></div>
+<div class="fl-bar" id="flbar" aria-hidden="true"><div class="val">Fuel levy<b class="num" id="barLevy">&ndash;</b></div><button type="button" class="fl-btn sec" data-act="share" tabindex="-1">Send</button><button type="button" class="fl-btn pri" data-act="notice" tabindex="-1">Customer letter</button></div>
 
 <dialog class="fl-dlg" id="noticeDlg" aria-labelledby="dlgTitle"><form method="dialog">
- <h2 id="dlgTitle">Customer notice</h2><p class="fl-hint" style="margin:0">A one-page A4 notice with the levy and the workings. Choose Save as PDF in the print window to email it.</p>
+ <h2 id="dlgTitle">Customer letter</h2><p class="fl-hint" style="margin:0">A one-page letter with the levy and how it was worked out. In the print window, choose Save as PDF to email it.</p>
  <label for="nBiz">Your business name</label><input id="nBiz" autocomplete="organization">
- <label for="nCust">Customer</label><input id="nCust" placeholder="Optional">
- <label for="nFrom">Levy applies from</label><input id="nFrom" type="date">
+ <label for="nCust">Customer name</label><input id="nCust" placeholder="Optional">
+ <label for="nFrom">Levy starts on</label><input id="nFrom" type="date">
  <div class="acts"><button class="fl-btn sec" value="cancel" formnovalidate>Cancel</button><button type="button" class="fl-btn pri" id="doPrint">Print or save PDF</button></div>
 </form></dialog>
 <div class="fl-toast" id="toast" role="status"></div>
