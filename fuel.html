@@ -107,7 +107,8 @@ form.sub .btn{height:56px}
 .times{font:600 13px var(--body);color:var(--mute);margin:6px 0 0}.dark .times{color:var(--mute-d)}
 .dlbox{margin-top:34px;padding:20px 22px;border:1px solid var(--line);border-radius:14px}.dlbox h3{margin:0 0 8px}.dlbox p{color:var(--mute-d);margin:0 0 12px;max-width:760px}
 .dls{display:flex;gap:8px;flex-wrap:wrap}.dl{display:inline-block;padding:8px 12px;border-radius:8px;border:1.5px solid var(--lime);color:var(--lime);font-weight:700;text-decoration:none}
-.getfix{font:700 14px var(--body);margin:14px 0 8px;color:inherit}
+.incl{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px;font:500 15px var(--body)}
+.incl li{display:inline-flex;align-items:center;gap:7px}.incl svg{flex:none}.incl b{font-weight:700}
 .legs li a{display:grid;grid-template-columns:14px 1fr auto;gap:12px;align-items:center;padding:11px 4px;border-bottom:1px solid var(--line);text-decoration:none}
 .legs li a:hover{background:rgba(255,255,255,.04)}
 .dot{width:10px;height:10px;border-radius:50%}
@@ -419,12 +420,12 @@ async function post(path,body){const r=await fetch(API+path,{method:'POST',heade
 document.querySelectorAll('form.sub').forEach(f=>f.addEventListener('submit',async e=>{e.preventDefault();
  const ok=f.querySelector('.ok'),btn=f.querySelector('button[type=submit]');ok.style.display='block';
  if(!API){ok.textContent='Prototype: sign up connects once the email account is set up, so nothing was saved yet.';return;}
- const v=n=>[...f.querySelectorAll('input[name='+n+']:checked')].map(x=>x.value);
+ const v=n=>[...f.querySelectorAll('input[name='+n+']:checked,input[type=hidden][name='+n+']')].map(x=>x.value);
  btn.disabled=true;ok.textContent='Signing you up...';
  const r=await post('/subscribe',{email:f.email.value,editions:v('edition'),lanes:v('lane'),website:f.website.value,ref:ls('fx_ref'),
   utm_source:ls('fx_utm_source'),utm_medium:ls('fx_utm_medium'),utm_campaign:ls('fx_utm_campaign'),landing_path:location.pathname});
  btn.disabled=false;
- ok.textContent=r.ok?(r.status==='active'?'You are already in. We updated your editions and lanes.':r.status==='waitlist'?'You are on the early access list. We will email you a link to confirm when the first editions go out.':'Nearly there. Check your inbox and click the link to confirm. It can take a minute, and check spam or promotions.'):(r.error||'Something went wrong. Please try again.');
+ ok.textContent=r.ok?(r.status==='active'?'You are already in. You are getting the Daily FIX and the Weekly wrap.':r.status==='waitlist'?'You are on the early access list. We will email you a link to confirm when the first editions go out.':'Nearly there. Check your inbox and click the link to confirm. It can take a minute, and check spam or promotions.'):(r.error||'Something went wrong. Please try again.');
  if(r.ok&&window.plausible)plausible('Signup');}));
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src&&v.dataset.src)v.src=v.dataset.src;if(!reduce&&v.dataset.autoplay!==undefined)v.play().catch(()=>{});}else{v.pause();}}),{rootMargin:'200px'});

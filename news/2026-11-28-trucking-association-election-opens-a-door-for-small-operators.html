@@ -107,7 +107,8 @@ form.sub .btn{height:56px}
 .times{font:600 13px var(--body);color:var(--mute);margin:6px 0 0}.dark .times{color:var(--mute-d)}
 .dlbox{margin-top:34px;padding:20px 22px;border:1px solid var(--line);border-radius:14px}.dlbox h3{margin:0 0 8px}.dlbox p{color:var(--mute-d);margin:0 0 12px;max-width:760px}
 .dls{display:flex;gap:8px;flex-wrap:wrap}.dl{display:inline-block;padding:8px 12px;border-radius:8px;border:1.5px solid var(--lime);color:var(--lime);font-weight:700;text-decoration:none}
-.getfix{font:700 14px var(--body);margin:14px 0 8px;color:inherit}
+.incl{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px;font:500 15px var(--body)}
+.incl li{display:inline-flex;align-items:center;gap:7px}.incl svg{flex:none}.incl b{font-weight:700}
 .legs li a{display:grid;grid-template-columns:14px 1fr auto;gap:12px;align-items:center;padding:11px 4px;border-bottom:1px solid var(--line);text-decoration:none}
 .legs li a:hover{background:rgba(255,255,255,.04)}
 .dot{width:10px;height:10px;border-radius:50%}
@@ -297,15 +298,7 @@ a.card:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
 <p class="src" style="margin-top:28px">Source: Industry report. FREIGHTIX reports the facts in its own words and never copies other publications. Check the original announcement before you act.</p>
 <div class="card" style="padding:22px;margin-top:30px"><b>Get the Daily FIX at 5am</b><form class="sub" id="join-a" action="" method="post">
 <div class="row"><input type="email" name="email" required placeholder="Your work email" aria-label="Work email" autocomplete="email"><button class="btn" type="submit">Subscribe</button></div>
-<p class="getfix">Get alerted when your FIX is available</p><div class="picks" role="group" aria-label="Editions"><label><input type="checkbox" name="edition" value="daily" checked> Daily FIX, 5am</label><label><input type="checkbox" name="edition" value="linehaul-am"> AM Road &amp; Rail Update, 5am</label><label><input type="checkbox" name="edition" value="linehaul-pm"> PM Road &amp; Rail Update, 4pm</label><label><input type="checkbox" name="edition" value="newsletter" checked> Weekly newsletter, Monday 9pm</label><label><input type="checkbox" name="edition" value="audio"> FIX On Air audio, 5am</label></div>
-<details class="optx"><summary>What does each option send me?</summary><dl>
-<div><dt>Daily FIX, 5am</dt><dd>One email every morning. Overnight closures and delays on the main freight roads and rail lines, the diesel price, and the industry news. About a three minute read.</dd></div>
-<div><dt>AM Road &amp; Rail Update, 5am</dt><dd>Roads and rail only, no news. A lane by lane status list before the morning run. Choose your lanes after you sign up.</dd></div>
-<div><dt>PM Road &amp; Rail Update, 4pm</dt><dd>The same lane by lane list, refreshed in the afternoon for the overnight run.</dd></div>
-<div><dt>Weekly newsletter, Monday 9pm</dt><dd>One email a week. Hours each lane was closed, diesel and fuel levy movement, the five biggest stories and the week ahead.</dd></div>
-<div><dt>FIX On Air audio, 5am</dt><dd>Your daily freight FIX in minutes, with Lisa. About five minutes, for the cab or the drive in.</dd></div>
-<div><dt>Urgent Road &amp; Rail Alerts (coming soon)</dt><dd>A short email the moment a main lane you pick is closed. Subscribers will be asked to switch it on when it starts.</dd></div>
-</dl></details>
+<input type="hidden" name="edition" value="daily"><input type="hidden" name="edition" value="newsletter"><ul class="incl" aria-label="What you get"><li><svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#B9F23F"/><path d="M5.5 10.5l3 3 6-6.5" fill="none" stroke="#0A1630" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Daily FIX</b> every morning, 5am</li><li><svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#B9F23F"/><path d="M5.5 10.5l3 3 6-6.5" fill="none" stroke="#0A1630" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Weekly wrap</b> Monday nights</li></ul>
 <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
 <p class="fine">Free, no catch. We send a confirm link first. One click to unsubscribe. We never share your email.</p><div class="ok" role="status"></div></form></div>
 <h2 class="eh">More industry updates</h2><ul class="morelist"><li><a href="2026-11-28-hino-issues-voluntary-recall-over-takata-airbags.html">Hino issues voluntary recall over Takata airbags</a> <span class="mini">Sat 28 Nov 2026</span></li><li><a href="2026-11-28-penske-truck-leasing-opens-in-tasmania.html">Penske Truck Leasing opens in Tasmania</a> <span class="mini">Sat 28 Nov 2026</span></li><li><a href="2026-11-28-australian-truck-sales-slump-to-2017-levels.html">Australian truck sales slump to 2017 levels</a> <span class="mini">Sat 28 Nov 2026</span></li><li><a href="2026-11-28-farmers-name-inflation-and-diesel-as-their-biggest-costs.html">Farmers name inflation and diesel as their biggest costs</a> <span class="mini">Sat 28 Nov 2026</span></li></ul>
@@ -323,12 +316,12 @@ async function post(path,body){const r=await fetch(API+path,{method:'POST',heade
 document.querySelectorAll('form.sub').forEach(f=>f.addEventListener('submit',async e=>{e.preventDefault();
  const ok=f.querySelector('.ok'),btn=f.querySelector('button[type=submit]');ok.style.display='block';
  if(!API){ok.textContent='Prototype: sign up connects once the email account is set up, so nothing was saved yet.';return;}
- const v=n=>[...f.querySelectorAll('input[name='+n+']:checked')].map(x=>x.value);
+ const v=n=>[...f.querySelectorAll('input[name='+n+']:checked,input[type=hidden][name='+n+']')].map(x=>x.value);
  btn.disabled=true;ok.textContent='Signing you up...';
  const r=await post('/subscribe',{email:f.email.value,editions:v('edition'),lanes:v('lane'),website:f.website.value,ref:ls('fx_ref'),
   utm_source:ls('fx_utm_source'),utm_medium:ls('fx_utm_medium'),utm_campaign:ls('fx_utm_campaign'),landing_path:location.pathname});
  btn.disabled=false;
- ok.textContent=r.ok?(r.status==='active'?'You are already in. We updated your editions and lanes.':r.status==='waitlist'?'You are on the early access list. We will email you a link to confirm when the first editions go out.':'Nearly there. Check your inbox and click the link to confirm. It can take a minute, and check spam or promotions.'):(r.error||'Something went wrong. Please try again.');
+ ok.textContent=r.ok?(r.status==='active'?'You are already in. You are getting the Daily FIX and the Weekly wrap.':r.status==='waitlist'?'You are on the early access list. We will email you a link to confirm when the first editions go out.':'Nearly there. Check your inbox and click the link to confirm. It can take a minute, and check spam or promotions.'):(r.error||'Something went wrong. Please try again.');
  if(r.ok&&window.plausible)plausible('Signup');}));
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src&&v.dataset.src)v.src=v.dataset.src;if(!reduce&&v.dataset.autoplay!==undefined)v.play().catch(()=>{});}else{v.pause();}}),{rootMargin:'200px'});
