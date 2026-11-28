@@ -6,4 +6,8 @@
 <itunes:image href="https://freightix.co/assets/podcast-cover.jpg"/><image><url>https://freightix.co/assets/podcast-cover.jpg</url><title>FIX On Air</title><link>https://freightix.co/listen.html</link></image>
 <itunes:category text="News"><itunes:category text="Business News"/></itunes:category><itunes:explicit>false</itunes:explicit><itunes:type>episodic</itunes:type>
 <copyright>FREIGHTIX</copyright>
+<item><title>FIX On Air, Saturday 28 November 2026</title><description>This is FIX On Air, your daily freight FIX in minutes. I&#x27;m Lisa, it&#x27;s Saturday the twenty eighth of November. The big one today is the Calder Highway, shut by flood at Bridgewater on Loddon, and that hits Sydney to Adelaide. Also up, four slow spots on the Gore and the Leichhardt in Queensland, and diesel&#x27;s come down again. In this episode: Delays, Current industry updates, Overnight on the main lanes, Rail, Weather and fire, Planned closures.</description><link>https://freightix.co/listen.html</link>
+<guid isPermaLink="false">freightrix-daily-fix-2026-11-28</guid><pubDate>Sat, 28 Nov 2026 05:00:00 +1100</pubDate>
+<enclosure url="https://freightix.co/media/episodes/pod-2026-11-28.mp3" length="5082954" type="audio/mpeg"/><itunes:duration>318</itunes:duration>
+<itunes:explicit>false</itunes:explicit><itunes:episodeType>full</itunes:episodeType></item>
 </channel></rss>
