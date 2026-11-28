@@ -107,7 +107,8 @@ form.sub .btn{height:56px}
 .times{font:600 13px var(--body);color:var(--mute);margin:6px 0 0}.dark .times{color:var(--mute-d)}
 .dlbox{margin-top:34px;padding:20px 22px;border:1px solid var(--line);border-radius:14px}.dlbox h3{margin:0 0 8px}.dlbox p{color:var(--mute-d);margin:0 0 12px;max-width:760px}
 .dls{display:flex;gap:8px;flex-wrap:wrap}.dl{display:inline-block;padding:8px 12px;border-radius:8px;border:1.5px solid var(--lime);color:var(--lime);font-weight:700;text-decoration:none}
-.getfix{font:700 14px var(--body);margin:14px 0 8px;color:inherit}
+.incl{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px;font:500 15px var(--body)}
+.incl li{display:inline-flex;align-items:center;gap:7px}.incl svg{flex:none}.incl b{font-weight:700}
 .legs li a{display:grid;grid-template-columns:14px 1fr auto;gap:12px;align-items:center;padding:11px 4px;border-bottom:1px solid var(--line);text-decoration:none}
 .legs li a:hover{background:rgba(255,255,255,.04)}
 .dot{width:10px;height:10px;border-radius:50%}
@@ -286,7 +287,7 @@ a.card:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
 <nav class="catbar" aria-label="Jump to a category"><div class="wrap"><a href="index.html#industry" data-cat="industry" class=""><i></i>Industry update</a><a href="index.html#linehaul" data-cat="linehaul" class="alert"><i></i>Linehaul update</a><a href="index.html#fuel" data-cat="fuel" class=""><i></i>Fuel update</a><a href="index.html#esg" data-cat="esg" class=""><i></i>ESG update</a></div></nav>
 <main><section class="light" style="padding-top:64px"><div class="wrap" style="max-width:860px">
 <p class="kick">You're in</p><h1 style="font-size:clamp(44px,6vw,76px);margin-bottom:14px">Welcome to the FIX.</h1>
-<p class="lede">Your first edition lands at the next send time. The Daily FIX is 5am Sydney time, the Road &amp; Rail Updates 5am and 4pm, the Weekly newsletter Monday at 9pm.</p>
+<p class="lede">Your first edition lands at the next send time. The Daily FIX arrives at 5am Sydney time every morning, and the Weekly wrap on Monday nights.</p>
 <div class="card" style="padding:24px;margin:30px 0"><h3 style="margin-bottom:8px">Share the FIX, get rewarded</h3>
 <p>Every person who signs up with your link and confirms counts. You have <b id="refn">0</b> so far.</p>
 <div class="row" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"><input id="reflink" readonly aria-label="Your referral link" style="flex:1;min-width:240px;height:52px;padding:0 14px;border:1.5px solid #B9C6D0;border-radius:8px;font:500 16px var(--body)" value="">
@@ -294,7 +295,7 @@ a.card:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
 <p class="fine" id="share" style="margin-top:10px;display:none"><a id="sh-wa" href="#">WhatsApp</a> · <a id="sh-li" href="#">LinkedIn</a> · <a id="sh-fb" href="#">Facebook</a> · <a id="sh-em" href="#">Email</a> · <a id="sh-sms" href="#">Text</a></p></div>
 <h2 style="margin:36px 0 14px">Rewards</h2><div class="list"><div class="li" style="grid-template-columns:90px 1fr"><b class="num" style="font:800 44px/1 var(--cond)">1</b><p style="margin:0">Our thanks, and first look at new lanes and features</p></div><div class="li" style="grid-template-columns:90px 1fr"><b class="num" style="font:800 44px/1 var(--cond)">3</b><p style="margin:0">The FIX Lane Atlas: every interstate leg, its roads and its usual trouble spots (PDF)</p></div><div class="li" style="grid-template-columns:90px 1fr"><b class="num" style="font:800 44px/1 var(--cond)">5</b><p style="margin:0">FREIGHTIX cap</p></div><div class="li" style="grid-template-columns:90px 1fr"><b class="num" style="font:800 44px/1 var(--cond)">10</b><p style="margin:0">A month of free sponsor mention for your business in the Daily FIX classifieds</p></div><div class="li" style="grid-template-columns:90px 1fr"><b class="num" style="font:800 44px/1 var(--cond)">25</b><p style="margin:0">FREIGHTIX hi vis vest</p></div></div>
 <div class="soon" style="grid-template-columns:1fr;margin-top:22px"><div class="sc"><span class="pill">Subscribers only &middot; coming soon</span><h3>Fuel vouchers</h3><p>We are adding fuel vouchers to these rewards. Referrals you make now with your link will count.</p><p class="note">Reward levels and terms will be published before it starts.</p></div></div>
-<p style="margin-top:30px"><a class="btn line" id="lanes" href="preferences.html" style="color:var(--ink)">Pick your lanes and editions</a></p></div></section></main>
+<p style="margin-top:30px"><a class="btn line" id="lanes" href="preferences.html" style="color:var(--ink)">Manage your emails</a></p></div></section></main>
 <footer><div class="wrap cols"><div><img class="brandfoot" src="assets/brand/freightix-primary-web.svg" alt="FREIGHTIX: Get your FIX!" width="1142" height="232" loading="lazy"><p>Australian road freight and linehaul intelligence. Closures and delays by lane, diesel and fuel levies, and the industry news that matters, by 5am.</p>
 <p class="sm">Editions are compiled from official public sources and sent to FREIGHTIX editors, with 20+ years of logistics industry experience, for review before they go out. Closures link to the official notice. Confirm before you act. Data checked Sat 28 Nov 2026, 07:40 PM AEDT.</p></div>
 <div><p><b style="color:#fff">Read and listen</b></p><p><a href="index.html">Today's Daily FIX</a><br><a href="brief.html">The full briefing</a><br><a href="listen.html">Listen: FIX On Air</a><br><a href="weekly.html">Weekly FIX newsletter</a><br><a href="lane-report.html">The Lane Report</a><br><a href="podcast.xml">Podcast feed</a></p></div>
@@ -308,12 +309,12 @@ async function post(path,body){const r=await fetch(API+path,{method:'POST',heade
 document.querySelectorAll('form.sub').forEach(f=>f.addEventListener('submit',async e=>{e.preventDefault();
  const ok=f.querySelector('.ok'),btn=f.querySelector('button[type=submit]');ok.style.display='block';
  if(!API){ok.textContent='Prototype: sign up connects once the email account is set up, so nothing was saved yet.';return;}
- const v=n=>[...f.querySelectorAll('input[name='+n+']:checked')].map(x=>x.value);
+ const v=n=>[...f.querySelectorAll('input[name='+n+']:checked,input[type=hidden][name='+n+']')].map(x=>x.value);
  btn.disabled=true;ok.textContent='Signing you up...';
  const r=await post('/subscribe',{email:f.email.value,editions:v('edition'),lanes:v('lane'),website:f.website.value,ref:ls('fx_ref'),
   utm_source:ls('fx_utm_source'),utm_medium:ls('fx_utm_medium'),utm_campaign:ls('fx_utm_campaign'),landing_path:location.pathname});
  btn.disabled=false;
- ok.textContent=r.ok?(r.status==='active'?'You are already in. We updated your editions and lanes.':r.status==='waitlist'?'You are on the early access list. We will email you a link to confirm when the first editions go out.':'Nearly there. Check your inbox and click the link to confirm. It can take a minute, and check spam or promotions.'):(r.error||'Something went wrong. Please try again.');
+ ok.textContent=r.ok?(r.status==='active'?'You are already in. You are getting the Daily FIX and the Weekly wrap.':r.status==='waitlist'?'You are on the early access list. We will email you a link to confirm when the first editions go out.':'Nearly there. Check your inbox and click the link to confirm. It can take a minute, and check spam or promotions.'):(r.error||'Something went wrong. Please try again.');
  if(r.ok&&window.plausible)plausible('Signup');}));
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src&&v.dataset.src)v.src=v.dataset.src;if(!reduce&&v.dataset.autoplay!==undefined)v.play().catch(()=>{});}else{v.pause();}}),{rootMargin:'200px'});
