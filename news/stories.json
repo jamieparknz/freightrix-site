@@ -2,6 +2,156 @@
  "about": "FREIGHTIX story archive. Written by website-v4/build.py; read by network-watch/stories.py.",
  "stories": [
   {
+   "slug": "2026-11-29-victorian-election-puts-toll-caps-and-road-spending-on",
+   "first_day": "2026-11-29",
+   "updated_day": "2026-11-29",
+   "versions": [
+    {
+     "day": "2026-11-29",
+     "headline": "Victorian election puts toll caps and road spending on the table",
+     "summary": "Toll caps and road spending are the big freight issues in the Victorian election. Costings for the road plans are out.",
+     "who": "Carriers paying Victorian tolls and anyone running Victorian roads.",
+     "when": "",
+     "story": "Freight issues in the Victorian election centre on toll caps and road spending. Election costings set out each side's road spending plans. Our data does not give the toll cap amounts or which projects get funded.",
+     "impact": "A toll cap would change the cost of runs that use Victorian toll roads. Fleet owners should read the costings and be ready to reprice contracts if tolls change.",
+     "topic": "Fuel and costs",
+     "outlets": 3,
+     "verified": false,
+     "sources": [
+      "Industry report"
+     ],
+     "ids": [
+      "news-9150833863"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "2026-11-29-140-8-million-plan-to-flood-proof-an-interstate",
+   "first_day": "2026-11-29",
+   "updated_day": "2026-11-29",
+   "versions": [
+    {
+     "day": "2026-11-29",
+     "headline": "$140.8 million plan to flood proof an interstate freight route",
+     "summary": "A $140.8 million plan aims to flood proof a major interstate freight route.",
+     "who": "Linehaul operators who lose runs when that route floods.",
+     "when": "",
+     "story": "A $140.8 million plan aims to flood proof a major interstate freight route. Our data does not name the route. A concept design for a $141 million Newell Highway upgrade also came out yesterday. The figures are close, but our data does not say if they are the same project. The news lands while floods have the Calder shut in three places.",
+     "impact": "Flood closures cost carriers hours, as the Calder shows today. Watch for the route and the build timeline before planning around it.",
+     "topic": "Weather and disruption",
+     "outlets": 1,
+     "verified": false,
+     "sources": [
+      "Industry report"
+     ],
+     "ids": [
+      "news-6066351509"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "2026-11-29-concept-design-out-for-141-million-newell-highway-upgrade",
+   "first_day": "2026-11-29",
+   "updated_day": "2026-11-29",
+   "versions": [
+    {
+     "day": "2026-11-29",
+     "headline": "Concept design out for $141 million Newell Highway upgrade",
+     "summary": "A concept design is out for a $141 million Newell Highway upgrade.",
+     "who": "Melbourne to Brisbane linehaul and anyone running the Newell.",
+     "when": "",
+     "story": "The concept design for a $141 million Newell Highway upgrade has been released. Our data does not say which section it covers or when work starts. The Newell carries the inland Melbourne to Brisbane run.",
+     "impact": "Newell operators should read the design to see which section it touches. Watch for work dates so you can plan around lane closures.",
+     "topic": "Roads and infrastructure",
+     "outlets": 1,
+     "verified": false,
+     "sources": [
+      "Industry report"
+     ],
+     "ids": [
+      "news-9001938168"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "2026-11-29-queensland-changes-low-loader-access-to-cut-permits",
+   "first_day": "2026-11-29",
+   "updated_day": "2026-11-29",
+   "versions": [
+    {
+     "day": "2026-11-29",
+     "headline": "Queensland changes low loader access to cut permits",
+     "summary": "Queensland has changed low loader access rules. The aim is to cut permit requirements.",
+     "who": "Queensland low loader operators and the shippers who book them.",
+     "when": "",
+     "story": "Queensland has changed access arrangements for low loaders. The goal is to cut the number of permits operators need. Our data does not list which routes or loads are covered.",
+     "impact": "Fewer permits could mean less paperwork and quicker bookings for low loader work. Operators should check the new access terms before applying for their next permit.",
+     "topic": "Rules and regulation",
+     "outlets": 1,
+     "verified": false,
+     "sources": [
+      "Industry report"
+     ],
+     "ids": [
+      "news-1501443708"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "2026-11-29-fair-work-halts-christmas-rail-freight-disruption",
+   "first_day": "2026-11-29",
+   "updated_day": "2026-11-29",
+   "versions": [
+    {
+     "day": "2026-11-29",
+     "headline": "Fair Work halts Christmas rail freight disruption",
+     "summary": "Fair Work has stopped a rail freight disruption planned for the Christmas period.",
+     "who": "Shippers and carriers relying on rail for Christmas freight.",
+     "when": "",
+     "story": "Fair Work has stepped in to halt rail freight disruption over Christmas. Our data does not say which operator or which lines were involved. Our data does not give the details of the action either.",
+     "impact": "Shippers who had planned to move rail freight onto road should check with their rail operator before changing bookings.",
+     "topic": "Workforce",
+     "outlets": 1,
+     "verified": false,
+     "sources": [
+      "Industry report"
+     ],
+     "ids": [
+      "news-2791127947"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "2026-11-29-twu-warns-of-fuel-and-dangerous-goods-disruptions",
+   "first_day": "2026-11-29",
+   "updated_day": "2026-11-29",
+   "versions": [
+    {
+     "day": "2026-11-29",
+     "headline": "TWU warns of fuel and dangerous goods disruptions",
+     "summary": "The Transport Workers Union has warned of disruptions involving fuel and dangerous goods.",
+     "who": "Fuel and dangerous goods carriers and their customers.",
+     "when": "",
+     "story": "The Transport Workers Union has warned of possible disruptions involving fuel and dangerous goods. Our data does not say what is causing them or when they could start. The national diesel terminal gate price is 230.9 cents a litre, down 35.6 cents in 30 days.",
+     "impact": "If you carry fuel or dangerous goods, or depend on fuel deliveries, stay in touch with your supplier. Wait for detail before changing plans.",
+     "topic": "Fuel and costs",
+     "outlets": 1,
+     "verified": false,
+     "sources": [
+      "Industry report"
+     ],
+     "ids": [
+      "news-8157234978"
+     ]
+    }
+   ]
+  },
+  {
    "slug": "2026-11-28-hino-issues-voluntary-recall-over-takata-airbags",
    "first_day": "2026-11-28",
    "updated_day": "2026-11-28",
