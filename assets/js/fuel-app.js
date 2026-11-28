@@ -9,17 +9,17 @@
   const $ = id => document.getElementById(id);
   const $$ = sel => [...document.querySelectorAll(sel)];
   const STORE = 'fx_levy_v2';
-  const DEF = { city: 'National', base: '12m', bp: '', w: 30, freq: 30, basis: 'ex', win: 'match', cd: '', rate: '1000', lp: '', range: 12 };
-  const W_PRESETS = [20, 30, 35];
+  const DEF = { city: 'National', base: '12m', bp: '', bpg: 'inc', w: 30, freq: 30, basis: 'ex', win: 'match', cd: '', rate: '1000', lp: '', range: 12 };
+  const W_PRESETS = [30, 25, 15];       /* FTL / linehaul, LTL / regional, local / metro */
   const BASIS = { ex: 'ex GST', net: 'after fuel tax credit', inc: 'inc GST' };
-  const FREQ = { 7: 'weekly', 14: 'fortnightly', 30: 'monthly' };
-  const PERIOD = { 7: 'week', 14: 'fortnight', 30: 'month' };
+  const FREQ = { 7: 'weekly', 14: 'fortnightly', 30: 'monthly', 91: 'quarterly' };
+  const PERIOD = { 7: 'week', 14: 'fortnight', 30: 'month', 91: 'quarter' };
   const CITY = c => (c === 'National' ? 'Australia-wide' : c);
   const track = (e, p) => { try { window.plausible && window.plausible(e, p ? { props: p } : undefined); } catch (_) {} };
 
   /* ---------- state: address bar first, then this device, then defaults ---------- */
   const S = Object.assign({}, DEF);
-  const UI = { wCustom: false, baseDate: false, bpOpen: false };
+  const UI = { wCustom: false, baseDate: false };
   (function load() {
     let saved = {};
     try { saved = JSON.parse(localStorage.getItem(STORE) || '{}'); } catch (_) {}
@@ -30,9 +30,9 @@
     if (!F.daily[S.city]) S.city = DEF.city;
     if (!BASIS[S.basis]) S.basis = DEF.basis;
     if (!FREQ[S.freq]) S.freq = DEF.freq;
+    if (S.bpg !== 'ex') S.bpg = 'inc';
     UI.wCustom = !W_PRESETS.includes(+S.w);
     UI.baseDate = /^\d{4}-/.test(S.base);
-    UI.bpOpen = S.bp !== '';
   })();
   function save() {
     const q = new URLSearchParams();
@@ -55,8 +55,16 @@
     if (m) return clampDate(L.addMonths(cd, -m[1]));
     return /^\d{4}-\d{2}-\d{2}$/.test(S.base) ? clampDate(S.base) : clampDate(L.addMonths(cd, -12));
   }
+  /* The base price people type: dollars a litre ($1.20) or cents a litre (120), with or without GST.
+     Returned as cents a litre including GST, the unit the price data uses. */
+  function bpCents() {
+    const v = parseFloat(String(S.bp).replace(/[$,\s]/g, '').replace(/c(\/?l)?$/i, ''));
+    if (!(v > 0)) return null;
+    const c = v < 10 ? v * 100 : v;
+    return S.bpg === 'ex' ? c * (1 + L.GST) : c;
+  }
   const inputs = over => Object.assign({
-    series: series(), calcDate: calcDate(), baseDate: baseDate(), basePrice: S.bp,
+    series: series(), calcDate: calcDate(), baseDate: baseDate(), basePrice: S.bp === '' ? '' : bpCents(),
     days: S.freq, window: S.win, basis: S.basis, weight: S.w, rate: S.rate, lp100: S.lp
   }, over || {});
 
@@ -72,6 +80,8 @@
   function press(sel, fn) { $$(sel).forEach(b => b.setAttribute('aria-pressed', fn(b) ? 'true' : 'false')); }
   function syncControls() {
     $$('input[name=freq]').forEach(r => { r.checked = +r.value === +S.freq; });
+    $$('input[name=bpg]').forEach(r => { r.checked = r.value === S.bpg; });
+    $('freqWarn').hidden = +S.freq !== 91;
     $$('input[name=basis]').forEach(r => { r.checked = r.value === S.basis; });
     $$('input[name=win]').forEach(r => { r.checked = r.value === S.win; });
     $('basedate').min = $('calcdate').min = first(); $('basedate').max = $('calcdate').max = latest();
@@ -83,10 +93,8 @@
     press('#lpChips [data-lp]', b => String(b.dataset.lp) === String(S.lp));
     press('#rangeChips [data-r]', b => +b.dataset.r === +S.range);
     $('baseDateBox').hidden = !UI.baseDate || !!S.bp;
-    $('bpBox').hidden = !UI.bpOpen; $('bpToggle').setAttribute('aria-expanded', UI.bpOpen);
-    $('bpToggle').textContent = UI.bpOpen ? 'Use the price on the date instead' : 'I know the diesel price in my rates';
     $('wBox').hidden = !UI.wCustom;
-    const adv = [FREQ[S.freq], BASIS[S.basis], S.win === 'day' ? 'exact day' : null, S.cd ? 'as at ' + D(calcDate()) : null].filter(Boolean);
+    const adv = [BASIS[S.basis], S.win === 'day' ? 'exact day' : null, S.cd ? 'as at ' + D(calcDate()) : null].filter(Boolean);
     $('advSum').textContent = adv.join(', ');
   }
 
@@ -98,8 +106,8 @@
     $('cityname').textContent = CITY(S.city);
     const wBad = !(S.w >= 1 && S.w <= 80);
     $('wErr').textContent = wBad ? 'Enter a figure between 1% and 80%.' : '';
-    const bpBad = S.bp !== '' && !(+S.bp >= 50 && +S.bp <= 500);
-    $('baseErr').textContent = bpBad ? 'Enter a diesel price between 50 and 500 cents a litre.' : (!S.bp && bd >= cd ? 'That date is not before today’s prices. Pick an earlier date.' : '');
+    const bc = bpCents(), bpBad = S.bp !== '' && !(bc >= 30 && bc <= 500);
+    $('baseErr').textContent = bpBad ? 'Enter the price as dollars a litre ($1.20) or cents a litre (120).' : (!S.bp && bd >= cd ? 'That date is not before today’s prices. Pick an earlier date.' : '');
     const r = wBad || bpBad ? null : L.compute(inputs());
     last = r;
     syncControls(); save();
@@ -125,7 +133,7 @@
     $('thenP').textContent = r.baseInc.toFixed(1);
     $('nowP').textContent = r.curInc.toFixed(1);
     $('thenLbl').textContent = r.manual ? 'In your rates' : 'When your rates were set';
-    $('thenD').textContent = r.manual ? 'your figure' : D(bd);
+    $('thenD').textContent = r.manual ? (S.bpg === 'ex' ? 'your figure, plus GST' : 'your figure') : D(bd);
     $('nowD').textContent = D(cd);
     $('boardCap').textContent = 'Wholesale diesel, cents a litre inc GST, ' + CITY(S.city) + (S.win === 'day' ? '' : ', ' + FREQ[S.freq] + ' average') + '. ' +
       (r.diff >= 0 ? 'Up ' : 'Down ') + Math.abs(r.curInc - r.baseInc).toFixed(1) + 'c.';
@@ -226,12 +234,11 @@
   let tmr; const soon = () => { clearTimeout(tmr); tmr = setTimeout(render, 150); };
   $$('#cityChips [data-city]').forEach(b => b.addEventListener('click', () => { S.city = b.dataset.city; render(); }));
   $$('#baseChips [data-base]').forEach(b => b.addEventListener('click', () => {
-    S.bp = ''; UI.bpOpen = false;
+    S.bp = ''; $('baseprice').value = '';
     if (b.dataset.base === 'date') { UI.baseDate = true; S.base = baseDate(); render(); $('basedate').focus(); }
     else { UI.baseDate = false; S.base = b.dataset.base; render(); }
   }));
   on('basedate', 'change', e => { if (e.target.value) { S.base = e.target.value; render(); } });
-  on('bpToggle', 'click', () => { UI.bpOpen = !UI.bpOpen; if (!UI.bpOpen) S.bp = ''; render(); if (UI.bpOpen) $('baseprice').focus(); });
   on('baseprice', 'input', e => { S.bp = e.target.value; soon(); });
   $$('#wChips [data-w]').forEach(b => b.addEventListener('click', () => {
     if (b.dataset.w === 'custom') { UI.wCustom = true; render(); $('weight').focus(); }
@@ -244,6 +251,7 @@
     if (f > 0 && t > 0 && f < t) { S.w = +(f / t * 100).toFixed(1); $('weight').value = S.w; soon(); }
   }));
   $$('input[name=freq]').forEach(r => r.addEventListener('change', e => { S.freq = +e.target.value; render(); }));
+  $$('input[name=bpg]').forEach(r => r.addEventListener('change', e => { S.bpg = e.target.value; render(); }));
   $$('input[name=basis]').forEach(r => r.addEventListener('change', e => { S.basis = e.target.value; render(); }));
   $$('input[name=win]').forEach(r => r.addEventListener('change', e => { S.win = e.target.value; render(); }));
   on('calcdate', 'change', e => { S.cd = e.target.value && e.target.value !== latest() ? e.target.value : ''; render(); });
@@ -251,7 +259,7 @@
   on('lp100', 'input', e => { S.lp = e.target.value; soon(); });
   $$('#lpChips [data-lp]').forEach(b => b.addEventListener('click', () => { S.lp = b.dataset.lp; render(); }));
   $$('#rangeChips [data-r]').forEach(b => b.addEventListener('click', () => { S.range = +b.dataset.r; render(); }));
-  on('reset', 'click', () => { Object.assign(S, DEF); UI.wCustom = UI.baseDate = UI.bpOpen = false; render(); toast('Back to the defaults'); });
+  on('reset', 'click', () => { Object.assign(S, DEF); UI.wCustom = UI.baseDate = false; $('baseprice').value = ''; render(); toast('Back to the defaults'); });
   if (S.lp) $('kmBox').open = true;
 
   /* ---------- send, copy, customer letter ---------- */

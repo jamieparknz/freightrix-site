@@ -28,6 +28,19 @@ t('ex GST basis gives the same % as inc GST (GST cancels out)', () => {
   near(a.cur, 220, 0.01);
 });
 
+t('legacy $1.20 base (120 c/L) against 242 c/L at 30% is about 30.5%', () => {
+  const r = L.compute({ series: S, baseDate: '2025-06-01', calcDate: '2025-06-01', basePrice: 120, window: 'day', basis: 'inc', weight: 30 });
+  near(r.levy * 100, 30.5);
+  assert.ok(r.manual);
+});
+
+t('quarterly review averages the last 91 days', () => {
+  const s = [];
+  for (let d = 0; d < 200; d++) s.push([L.addDays('2025-01-01', d), d < 109 ? 200 : 260]);   // 260 for the last 91 days
+  const r = L.compute({ series: s, baseDate: '2025-01-01', calcDate: L.addDays('2025-01-01', 199), days: 91, window: 'match', basis: 'inc', weight: 30 });
+  near(r.curInc, 260);
+});
+
 t('price below base gives a negative levy (a discount)', () => {
   const r = L.compute({ series: S, baseDate: '2025-06-01', calcDate: '2025-06-01', basePrice: 260, window: 'day', basis: 'inc', weight: 30 });
   assert.ok(r.levy < 0);
