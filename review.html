@@ -90,6 +90,24 @@ form.sub .btn{height:56px}
 .legs.cols li{border-top:1px solid var(--line)}
 .lb-head{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap;margin-bottom:26px}
 .lb-map{width:100%;max-width:1180px;margin:0 auto}
+.fxb{position:relative;display:inline-flex;align-items:center;gap:6px;font:700 12.5px/1 var(--body);letter-spacing:.02em;padding:6px 10px;border-radius:99px;border:1.5px solid var(--ink);background:#fff;color:var(--ink);cursor:help;vertical-align:middle}
+.fxb.v{background:#B9F23C}.fxb svg{width:14px;height:14px;flex:none}
+.fxtip{position:absolute;left:0;top:calc(100% + 8px);z-index:40;width:min(300px,78vw);background:#0A1630;color:#E6EEF3;font:500 13.5px/1.45 var(--body);letter-spacing:0;padding:11px 13px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.25);opacity:0;visibility:hidden;transition:opacity .15s;text-transform:none}
+.fxtip b{display:block;color:#B9F23C;margin-bottom:4px}.fxb:hover .fxtip,.fxb:focus .fxtip,.fxb:focus-within .fxtip{opacity:1;visibility:visible}
+.art-wrap{padding:44px 0 80px}.art-page{max-width:860px}.art-page h1{font-size:clamp(34px,4.6vw,58px);line-height:1.04;margin:6px 0 16px}
+.art-page .kick a{color:inherit}.art-meta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font:600 14px var(--body);color:var(--mute);margin-bottom:20px}
+.art-page .lede{font-size:20px;color:#26353F;margin:0 0 24px}
+.art3{display:grid;gap:16px}.art3>div{background:#fff;border:2px solid var(--ink);border-radius:16px;padding:18px 20px;box-shadow:4px 4px 0 var(--ink)}
+.art3 h2{font-size:22px;margin:0 0 8px}.art3 p{margin:0 0 8px;font-size:17px;line-height:1.55}
+.upd{background:#FFF6E0;border-left:4px solid #FFB224;padding:12px 14px;border-radius:6px;margin:0 0 20px;font-size:16px}
+.eh{font-size:28px;margin:40px 0 14px}.earlier{border-left:3px solid #C3CED6;padding:4px 0 4px 14px;margin:0 0 16px}.earlier h3{font-size:20px;margin:2px 0 6px}
+.morelist{padding-left:18px}.morelist li{margin:0 0 8px}
+.nrow{display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid var(--ink);border-radius:14px;padding:16px 18px;margin:0 0 12px;box-shadow:4px 4px 0 var(--ink)}
+.nrow h3{font-size:22px;margin:0 0 6px}.nrow p{margin:0 0 4px}
+.times{font:600 13px var(--body);color:var(--mute);margin:6px 0 0}.dark .times{color:var(--mute-d)}
+.dlbox{margin-top:34px;padding:20px 22px;border:1px solid var(--line);border-radius:14px}.dlbox h3{margin:0 0 8px}.dlbox p{color:var(--mute-d);margin:0 0 12px;max-width:760px}
+.dls{display:flex;gap:8px;flex-wrap:wrap}.dl{display:inline-block;padding:8px 12px;border-radius:8px;border:1.5px solid var(--lime);color:var(--lime);font-weight:700;text-decoration:none}
+.getfix{font:700 14px var(--body);margin:14px 0 8px;color:inherit}
 .legs li a{display:grid;grid-template-columns:14px 1fr auto;gap:12px;align-items:center;padding:11px 4px;border-bottom:1px solid var(--line);text-decoration:none}
 .legs li a:hover{background:rgba(255,255,255,.04)}
 .dot{width:10px;height:10px;border-radius:50%}
@@ -251,7 +269,11 @@ a.card:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
 .bstack .card .cb{padding:20px 22px}
 .bstack .card h3{font-size:24px}
 .bstack .card .num0{position:absolute;right:18px;top:14px;font:800 40px/1 var(--cond);color:#E6E1D4}
-.bstack .card{scroll-margin-top:130px}.bstack .card:target{box-shadow:6px 6px 0 #B9F23C;border-color:var(--ink);outline:3px solid #B9F23C;outline-offset:2px}
+.bstack .card{scroll-margin-top:130px}
+.ncard{overflow:visible}.ncard .cimg{border-radius:16px 16px 0 0}.ncard h3 a{color:inherit;text-decoration:none}.ncard h3 a:hover{text-decoration:underline}
+.ncard .ww{font-size:14.5px;line-height:1.5;color:#33434F;display:block}.ncard .more summary{cursor:pointer;font-weight:700;color:var(--ink)}
+.ncard .more p{display:block;margin:8px 0 0;font-size:15.5px}.ncard .more a{display:inline-block;margin-top:8px;font-weight:700}
+.ncard .meta{justify-content:space-between}.ncard .rm{font-weight:700;color:var(--ink)}.chip.upd{background:#FFB224}.bstack .card:target{box-shadow:6px 6px 0 #B9F23C;border-color:var(--ink);outline:3px solid #B9F23C;outline-offset:2px}
 @media (max-width:1000px){.bhero .wrap,.latest,.feat{grid-template-columns:1fr}.feat .cimg{border-right:0;border-bottom:2px solid var(--ink);min-height:260px}
  .grid3,.grid4{grid-template-columns:1fr 1fr}.stack{height:440px}}
 @media (max-width:600px){.grid3,.grid4{grid-template-columns:1fr}.stack{display:none}.bhero{padding:36px 0 28px}.stack .card{width:92%;left:4%}.stack .s3,.stack .s2{display:none}
@@ -312,7 +334,7 @@ a.card:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
 @media (max-width:600px){.rv-btn{flex:1 1 auto}.rv-bar b.big{font-size:32px}}
 </style></main>
 <footer><div class="wrap cols"><div><img class="brandfoot" src="assets/brand/freightix-primary-web.svg" alt="FREIGHTIX: Get your FIX!" width="1142" height="232" loading="lazy"><p>Australian road freight and linehaul intelligence. Closures and delays by lane, diesel and fuel levies, and the industry news that matters, by 5am.</p>
-<p class="sm">Editions are compiled from official public sources and sent to FREIGHTIX editors, with 20+ years of logistics industry experience, for review before they go out. Closures link to the official notice. Confirm before you act. Data checked Sat 28 Nov 2026, 05:49 PM AEDT.</p></div>
+<p class="sm">Editions are compiled from official public sources and sent to FREIGHTIX editors, with 20+ years of logistics industry experience, for review before they go out. Closures link to the official notice. Confirm before you act. Data checked Sat 28 Nov 2026, 07:40 PM AEDT.</p></div>
 <div><p><b style="color:#fff">Read and listen</b></p><p><a href="index.html">Today's Daily FIX</a><br><a href="brief.html">The full briefing</a><br><a href="listen.html">Listen: FIX On Air</a><br><a href="weekly.html">Weekly FIX newsletter</a><br><a href="lane-report.html">The Lane Report</a><br><a href="podcast.xml">Podcast feed</a></p></div>
 <div><p><b style="color:#fff">Tools and more</b></p><p><a href="linehaul.html">Linehaul Board</a><br><a href="fuel.html">Fuel Watch: levy calculator</a><br><a href="esg.html">ESG Watch: emissions calculator</a><br><a href="advertise.html">Advertise</a><br><a href="credits.html">Credits and data sources</a><br><a href="privacy.html">Privacy</a></p></div></div></footer>
 <script>
