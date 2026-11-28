@@ -126,3 +126,18 @@
 .trip .tbar{height:14px;border-radius:99px;background:#1C3350;overflow:hidden;margin:6px 0}
 .trip .tbar i{display:block;height:100%;border-radius:99px;transition:width .3s}
 .trip .seg button{font-size:13.5px;padding:8px 12px}
+
+/* ---------- Short "Checked" line (replaces the large Verified edition box) ---------- */
+.vbadge{display:flex;align-items:center;gap:8px;margin:12px 0 18px;padding:0;border:0;background:none;box-shadow:none;color:var(--mute,#5b6577);font-size:13.5px;line-height:1.4;max-width:560px}
+.vbadge svg{flex:0 0 16px;width:16px;height:16px;margin:0;color:var(--cyan-d,#0b7a86)}
+.vbadge b{font-family:var(--body);font-size:13.5px;letter-spacing:0;text-transform:none;margin-right:4px;color:inherit;font-weight:700}
+
+/* ---------- What each sign-up option sends ---------- */
+.optx{font-size:13.5px;line-height:1.45;max-width:560px}
+.optx summary{cursor:pointer;font-weight:600;text-decoration:underline;text-underline-offset:3px;list-style:none;display:inline-flex;align-items:center;gap:6px;min-height:32px}
+.optx summary::-webkit-details-marker{display:none}
+.optx summary:after{content:"+";font-weight:700}
+.optx[open] summary:after{content:"\2212"}
+.optx dl{margin:8px 0 0;display:grid;gap:8px}
+.optx dt{font-weight:700}
+.optx dd{margin:0;opacity:.85}
