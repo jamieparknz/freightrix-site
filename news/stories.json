@@ -1,0 +1,130 @@
+{
+ "about": "FREIGHTIX story archive. Written by website-v4/build.py; read by network-watch/stories.py.",
+ "stories": [
+  {
+   "slug": "2026-11-28-hino-issues-voluntary-recall-over-takata-airbags",
+   "first_day": "2026-11-28",
+   "updated_day": "2026-11-28",
+   "versions": [
+    {
+     "day": "2026-11-28",
+     "headline": "Hino issues voluntary recall over Takata airbags",
+     "summary": "Hino has issued a voluntary safety recall. The fault is the Takata airbag problem.",
+     "who": "Fleets and owner drivers running Hino trucks.",
+     "when": "Now",
+     "story": "Hino has issued a voluntary safety recall. It is tied to the Takata airbag issue. Our data does not say which models or build years are covered. Owners should get the detail from Hino or their dealer.",
+     "impact": "Fleet managers should check every Hino on the books against the recall and book the work in. Plan cover for any unit that goes into the workshop.",
+     "topic": "Safety and enforcement",
+     "outlets": 1,
+     "verified": false,
+     "sources": [
+      "Industry report"
+     ],
+     "ids": [
+      "news-3256804341"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "2026-11-28-penske-truck-leasing-opens-in-tasmania",
+   "first_day": "2026-11-28",
+   "updated_day": "2026-11-28",
+   "versions": [
+    {
+     "day": "2026-11-28",
+     "headline": "Penske Truck Leasing opens in Tasmania",
+     "summary": "Penske Truck Leasing has launched in Tasmania.",
+     "who": "Tasmanian operators who lease or hire trucks have another supplier.",
+     "when": "Now",
+     "story": "Penske Truck Leasing has launched in Tasmania. Our data does not give pricing, fleet size or locations. It adds another leasing option in the state.",
+     "impact": "Tasmanian fleets coming up to a lease renewal have another name to get a quote from. Compare prices before you renew.",
+     "topic": "General",
+     "outlets": 1,
+     "verified": false,
+     "sources": [
+      "Industry report"
+     ],
+     "ids": [
+      "news-3509616622"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "2026-11-28-australian-truck-sales-slump-to-2017-levels",
+   "first_day": "2026-11-28",
+   "updated_day": "2026-11-28",
+   "versions": [
+    {
+     "day": "2026-11-28",
+     "headline": "Australian truck sales slump to 2017 levels",
+     "summary": "Truck sales in Australia have fallen back to where they were in 2017.",
+     "who": "Truck dealers, and fleets deciding when to buy new.",
+     "when": "",
+     "story": "Australian truck sales have slumped to 2017 levels. Our data does not include the figures behind the fall or the reasons for it. Watch for the full numbers.",
+     "impact": "Slow sales may leave dealers keener to deal. Fleets due to replace units could ask for sharper prices, but check the full figures first.",
+     "topic": "General",
+     "outlets": 1,
+     "verified": false,
+     "sources": [
+      "Industry report"
+     ],
+     "ids": [
+      "news-1014381666"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "2026-11-28-trucking-association-election-opens-a-door-for-small-operators",
+   "first_day": "2026-11-28",
+   "updated_day": "2026-11-28",
+   "versions": [
+    {
+     "day": "2026-11-28",
+     "headline": "Trucking association election opens a door for small operators",
+     "summary": "The Australian Trucking Association (ATA) election is giving owner drivers and small fleets a platform.",
+     "who": "Owner drivers and small fleet owners who want a say in industry policy.",
+     "when": "",
+     "story": "The Australian Trucking Association (ATA) is holding an election. It is being seen as a platform for owner drivers and small fleets. Our data does not name the candidates or give the voting dates.",
+     "impact": "Small operators should find out who is standing and what they back. Your voice at the ATA shapes the policy you end up working under.",
+     "topic": "Workforce",
+     "outlets": 1,
+     "verified": false,
+     "sources": [
+      "Industry report"
+     ],
+     "ids": [
+      "news-8756803945"
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "2026-11-28-farmers-name-inflation-and-diesel-as-their-biggest-costs",
+   "first_day": "2026-11-28",
+   "updated_day": "2026-11-28",
+   "versions": [
+    {
+     "day": "2026-11-28",
+     "headline": "Farmers name inflation and diesel as their biggest costs",
+     "summary": "Inflation and diesel costs top the list of challenges for Australian farmers. The national terminal gate average is 230.9 cents a litre.",
+     "who": "Carriers hauling for farm customers, who may feel the pressure on rates.",
+     "when": "",
+     "story": "Australian farmers rate inflation and diesel as their top challenges. The national average terminal gate price was 230.9 cents a litre on 27 November. That is up 32.2 per cent on 12 months ago. It is down 11.4 cents over 7 days and 35.6 cents over 30 days.",
+     "impact": "Farm customers under cost pressure may push back on fuel levies. With diesel down 35.6 cents in 30 days, check your levy still matches the price.",
+     "topic": "Fuel and costs",
+     "outlets": 1,
+     "verified": false,
+     "sources": [
+      "Industry report"
+     ],
+     "ids": [
+      "news-6343342516"
+     ]
+    }
+   ]
+  }
+ ]
+}
